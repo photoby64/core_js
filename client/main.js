@@ -1,13 +1,6 @@
+// alert('경고창!!!!!!');
 
+// confirm('정말.. 지울꺼야..?')
 
-
-
-
-const a = "hello";
-
-function sum() {
-
-
-  console.log(1+2);
-  
-}
+// prompt는 인풋 처럼 답변을 받을 수 있다.
+// prompt('당신은 잘 생겼습니까??????')
