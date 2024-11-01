@@ -75,8 +75,8 @@ let onlyWorkDefaultValues = [1,2,3] + [4,5,6];
 
 
 // [1,2,3,4,5,6]
-// let first = [1,2,3];
-// let second = [3,5,6];
+let first = [1,2,3];
+let second = [3,5,6];
 
 // 옛날방식
 // const mix = first.concat(second);
@@ -86,7 +86,9 @@ let onlyWorkDefaultValues = [1,2,3] + [4,5,6];
 // spread operatar 전개 연산자
 // spread syntax 전개 구문
 
-console.log(...first, ...second);
+
+
+console.log([...first, ...second]);
 
 
 
