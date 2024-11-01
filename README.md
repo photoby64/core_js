@@ -34,3 +34,5 @@
 ---
 ## 💕 Condition
 - [x] Condition (if조건문) [바로가기](https://github.com/photoby64/core_js/blob/01.core/client/chapter/core/09-1.condition.js)
+- [x] Condition (논리연산자) [바로가기](https://github.com/photoby64/core_js/blob/01.core/client/chapter/core/09-2.condition.js)
+- [x] Condition (switch..case) [바로가기](https://github.com/photoby64/core_js/blob/01.core/client/chapter/core/09-3.condition.js)
