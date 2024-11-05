@@ -37,6 +37,7 @@ console.log(Object.prototype.hasOwnProperty.call(javaScript,'valueOf'));
   // 사실 이런 문제가 자꾸 일어나고 너무 불편하니까 새로운 매소드가 등장!!
   // Object.hasOwn
   // **안전하게 내가 원하는 대상을 가져오기 위해서**
+  // 근데 구식 브라우저는 안돌아가서 위에 코드를 계속 씀.ㅋ
   console.log(Object.hasOwn(javaScript, 'creator')); //true
 
 
@@ -45,5 +46,30 @@ console.log(Object.prototype.hasOwnProperty.call(javaScript,'valueOf'));
 
 
 // for ~ in 문
+
+// in 문은 하나 조회
+// for 문은 여러개
+
+
 // - 객체 자신의 속성만 순환하려면?
+
+  // 앞에 키 값을 변수로 처리해야함
+  // for( key in object)
+
+// 객체의 key를 조회 
+// 객체의 value를 조회
+
+for(const key in javaScript ){
+
+  if(Object.hasOwn(javaScript,key)){
+
+    const value = javaScript[key];
+    console.log(value);
+
+  }
+}
+
+
+
 // - 배열 객체 순환에 사용할 경우?
+// 배열은 순서에 굉장히 민감한 데이터 => For in문은 순서를 보장하지 않는다.
