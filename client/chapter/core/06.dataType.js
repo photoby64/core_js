@@ -241,22 +241,40 @@ console.log(typeof uuid === typeof uuid2);  // true (타입은 동일)
 // 2) 함수 typeof()
 
 
-// [1] 단순히 콘솔 로그를 출력하고, 반환 값은 없다.
 
-function a(){
+console.log('❗️');
 
+// [1] 
+function a(){ // 함수를 정의
+// 함수의 내용은 비어 있음
 }
-a()
+a() // 함수를 호출 => 출력되는 값은 없음
+console.log(a());
 
+console.log('✅');
+// [2] 
+// 생성자 함수를 호출하는 방식으로 객체를 생성 하는것.
 
-// [2] 같은 로그를 출력하지만, 빈 객체가 생성되고 반환된다
-
-new a()
+new a() 
 
 console.log(new a());
 
 
-console.log('⭐️ 함수 예시⭐️');
+
+
+
+
+console.log('🌈');
+function b() {
+  this.name = 'ObjectB';
+}
+
+const objj = new b();
+console.log(objj.name); // "ObjectA" 출력
+
+
+
+console.log('⭐️');
 
 function aa(){
   this.name= 'lazzy64';
@@ -282,13 +300,199 @@ console.log(obj_7);
 
 
 
-
 // Object
+
+// 객체에 메서드를 정의하는 방법
+
+// 1. normal function 
+
+const user= {
+  name: 'pyk',
+  age: 20,
+  payment: false,
+  
+  
+  
+// this는 메서드가 호출된 컨텐츠 즉, user 객체를 가르킨다.
+  sayHi: function(){
+    console.log(this);
+  },
+
+
+// 화살표 함수는 자신의 this를 가지고 있지 않고 상위 스코프 this를 참고한다.
+// 만약 user.sayHi2()를 호출하면 this는 user가 아닌 글로버객체나
+// 상위 스코프에 있는 this를 가르킨다.
+// 즉, window 객체 혹은 global 객체를 출력한다.
+  sayHi2: ()=>{
+    console.log(this); 
+  },
+
+  // 일반 함수 내 화살표 함수
+  sayHi3(){
+
+    const sayBye = () => {
+      console.log( this.age = 30);
+    }
+
+    sayBye();
+
+  }
+};
+
+
+
+
+
+  const sayHi4 = {
+    sayBye: function() {
+      console.log(this.age = 30);
+    }
+  };
+
+console.log('1️⃣');
+user.sayHi();
+
+// 2. arrow function 
+console.log('2️⃣');
+user.sayHi2();
+
+// 3. concise method
+console.log('3️⃣');
+user.sayHi3();
+
+
+
+
+// 함수를 호출하면서 동시에 생성
+function User(){
+  this.payment = false;
+  this.age = 29;
+}
+
+const _a = new User;
+const _a2 = new User;
+const _a3 = new User;
+const _a4 = new User;
+const _a5 = new User;
+const _a6 = new User;
+
+console.log(_a2);
+
+
+
 
 // Array
 
+console.log('⭐️');
+
+const arr = ['a', {name:'lazzy-64'}, ()=>{}, 6, 4];
+
+// [[Prototype]] Array(0) 출력
+console.log(arr); 
+
+console.log('🥹');
+
+
+// 근데 타입은 객체로 표시됨ㅋㅋ 골때려
+console.log(typeof arr); 
+
+
+
+
+
+
+// ⭐️ 나중에 읽어보기 ⭐️
+// 엄격한 타입 구분을 위한 방법:
+// Array.isArray(): 배열인지 아닌지를 정확히 구분할 수 있습니다.
+
+// javascript
+// 코드 복사
+// const arr = [1, 2, 3];
+// console.log(Array.isArray(arr));  // true
+// instanceof 연산자: 객체가 특정 생성자 함수의 인스턴스인지 확인할 수 있습니다. 배열뿐만 아니라 다양한 객체를 구별할 수 있어요.
+
+// javascript
+// 코드 복사
+// const arr = [1, 2, 3];
+// console.log(arr instanceof Array);  // true
+// console.log(arr instanceof Object);  // true
+// constructor 속성: 객체의 생성자 정보를 통해 더 세밀하게 타입을 확인할 수 있습니다.
+
+// javascript
+// 코드 복사
+// const arr = [1, 2, 3];
+// console.log(arr.constructor === Array);  // true
+// console.log(arr.constructor === Object);  // false
+// Object.prototype.toString.call(): 이 방법은 객체의 내부 클래스를 정확히 구분할 수 있는 가장 엄격한 방법입니다. 이를 사용하면 배열, 객체, 함수 등을 정확하게 구별할 수 있습니다.
+
+// javascript
+// 코드 복사
+// const arr = [1, 2, 3];
+// console.log(Object.prototype.toString.call(arr));  // "[object Array]"
+// const obj = { a: 1 };
+// console.log(Object.prototype.toString.call(obj));  // "[object Object]"
+// 이 방법들을 사용하면 typeof로만 확인할 때의 한계를 넘어서서 더욱 정확한 타입 체크를 할 수 있습니다! 😄
+// ⭐️ 나중에 읽어보기 ⭐️
+
+
+
+
 // function
+console.log('⭐️');
+
+
+
+function sum(a,b){
+  return a+ b
+}
+
+const result= sum(10, 5);
+
+console.log(result);
+
+
+
+function 붕어빵틀(재료){
+  return `따끈하고 맛있는 ${재료} 맛 붕어빵 입니다!`
+}
+
+const 팥붕= 붕어빵틀('팥');
+const 슈붕= 붕어빵틀('슈크림');
+const 와붕= 붕어빵틀('와사비');
+const 피붕= 붕어빵틀('피자');
+
+console.log(팥붕); 
+console.log(슈붕); 
+console.log(와붕); 
+console.log(피붕); 
+
+
+
+
+// 익명 함수 (예시)
+
+// 익명의 함수처럼 동작하는 함수
+// 런타임에 코드가 실행되기 전에 
+// 함수 본문을 동적으로 정의할 수 있게 해주는 
+// 자바스크립트의 내장 기능
+
+const f= new Function('sjdjsndjsd');
+console.log(f);
+
 
 // this
 
 
+
+// 'name' 매개변수
+// 'Parameter'
+// 함수의 괄호 안에서 선언된 변수. 
+// 함수 내부에서 사용할 값의 이름입니다.
+
+function greet(name) { 
+  console.log(`Hello, ${name}!`);
+}
+
+greet('Alice');  
+// 'Alice'는 인자
+// 'Argument'
