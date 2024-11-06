@@ -123,7 +123,132 @@ function setCss(node, prop, value){
 
 }
 
-setCss('.first', 'backgroundColor', '#4169E1')
+//setCss('.first', 'backgroundColor', '#4169E1')
+document.body.style
+
+
+
+// function getCss(className, prop){
+
+
+//   return className= getComputedStyle(className)[prop]
+//   if(!(prop in document.body.style)) throw new ReferenceError('ㅇ랑라알');
+
+
+//   className.style[prop]
+
+
+//}
+
+//const fontSize= getCss('_first','font-size');
+//console.log(fontSize);
+
+
+
+function getCss(node,prop){
+
+  if(typeof node === 'string'){
+    node = document.querySelector(node);
+  }
+
+  if(!(prop in document.body.style)) {
+    throw new ReferenceError('getCss 함수의 두 번째 인수는 유효한 css 속성 이어야 합니다.');
+  }
+
+  return getComputedStyle(node)[prop]
+
+}
+
+//const fontSize = getCss('.first','border');
+
+
+//console.log( fontSize );
+
+
+
+
+
+function css(node,prop,value){
+
+  // if(!value){
+  //   return getCss(node,prop) // getter
+  // }else{
+  //   // setter
+  //   return setCss(node,prop,value)
+  // }
+
+  return !value ? getCss(node,prop) : setCss(node,prop,value);
+  
+
+}
+
+
+
+const _css= (node,prop,value) => !value ? getCss(node,prop) : setCss(node,prop,value);
+
+
+
+console.log( css('.first','color') );
+ // getter
+
+css('.first','color','red') // setter
+
+
+
+
+let sayHi = function() {
+  alert( "Hello" );
+};
+
+let func = sayHi;
+
+console.log(func);
+
+
+
+
+
+function ask(q, yes, no){
+    
+  if(q === '동의'){
+      yes()    
+  }else{
+      no()
+  }
+  
+}
+
+
+
+ask(
+  '동의',
+  function (){ 
+      return 'yes' 
+  },
+  function (){
+      return 'no'
+  }
+)
+
+
+// function ask(question, yes, no) {
+//   if (confirm(question)) yes()
+//   else no();
+// }
+
+// ask(
+//   "동의하십니까?",
+//   function() { alert("동의하셨습니다."); },
+//   function() { alert("취소 버튼을 누르셨습니다."); }
+// );
+
+  // 안쪽에 있는 데이터를 밖으로 꺼내쓸수 있다.는 장점 ^^
+
+
+
+
+
+
 
 
 // node의 값을 'h1'으로 받았을 경우 
