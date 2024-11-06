@@ -85,9 +85,44 @@ console.log(car.model);
 
 
 // 4. 정수, 부동 소수점 숫자(길이 제약)
+const integer = 150;
+console.log(integer);
+
+const flotingPointNumber= 123.5;
+
+const num= new Number(23);
+console.log(typeof num);
+
+
 // 5. 길이에 제약이 없는 정수(예: 암호 관련 작업에서 사용)
 // 6. 참(true, yes) 또는 거짓(false, no)
+
+
+const bool = new Boolean(true);
+console.log(bool);
+console.log(typeof bool);
+
 // 7. 데이터 컬렉션(collection) 또는 복잡한 엔티티(entity)
+
+const obj= {
+  name: 'sixfour',
+  age: 18,
+};
+console.log(obj);
+console.log(typeof obj);
+
+
+const obj_1= new Object;
+obj_1['name'] = '64';
+obj_1['age'] = 18;
+console.log(obj_1);
+
+
+
+// **Object.keys(obj)**는 객체의 키들을 배열로 반환합니다.
+// **Object.values(obj)**는 객체의 값들을 배열로 반환합니다.
+// **Object.entries(obj)**는 객체의 키와 값을 배열의 배열로 반환합니다.
+
 // 8. 고유한 식별자(unique identifier)
 
 
