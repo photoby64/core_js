@@ -64,6 +64,47 @@ console.log(power);
 
 console.log(Number.MAX_SAFE_INTEGER);
 
+console.clear();
+
+Math.pow(2,53)
+console.log(Math.pow(2,53));
+
+
+
+
+let ex = [1,2,3] + [4,5,6]; 
+console.log(ex); //1,2,34,5,6
+
+let first = [1,2,3];
+let second = [4,5,6];
+
+
+// concat.()
+// [1] 배열에서의 concat 
+const mix = first.concat(second);
+console.log(mix);
+
+
+//[2] 문자에서의 concat
+
+let str1 = 'Hello';
+let str2 = ' World';
+let result = str1.concat(str2);
+console.log(result); 
+
+let greeting = 'Hello';
+let name = 'John';
+let fullGreeting = greeting.concat('! ', name); // '! '이 느낌표와 공백은 "Hello"와 "John" 사이에 추가될 것
+console.log(fullGreeting);
+
+
+
+// 다시 정리..
+// 함수: 독립적으로 존재하는 코드 블록.
+// 메서드: 객체에 속한 함수, 객체를 통해 호출.
+
+
+// a는 전역변수로 선언 된듯..
 
 a % 2 !== 0 ? '홀수' : '짝수'
 
