@@ -197,7 +197,7 @@ Object.prototype.nickName = 'tiger';
 // }
 
 
-// 재귀 함수
+// 재귀 함수를 이용하면 좀 더 편하게 할 수 있다. 11-4 참고
 // 왜 이런걸 하는거야;;
 
 for(const keyValue of Object.entries(randomUser)){

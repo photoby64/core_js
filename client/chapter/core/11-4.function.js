@@ -2,6 +2,28 @@
 /* Functions → Recursion       */
 /* --------------------------- */
 
+
+
+
+function pow(x,n){
+
+  if (1 === 1){
+    return x;
+  }else{
+    return x * pow(x, n-1 )
+  }
+
+
+
+}pow(2,3)
+
+
+
+
+
+
+
+
 // 재귀(Recursion)
 // 사전적 정의: "본래 있던 곳으로 다시 돌아옴"
 // 프로그래밍 정의: 
@@ -18,15 +40,58 @@
 
 // factorial 함수를 재귀 호출 방식으로 작성
 // 참고: https://bit.ly/factorial-util
+// 참고: https://ko.wikipedia.org/wiki/%EA%B3%84%EC%8A%B9_(%EC%88%98%ED%95%99)
 // - 팩토리얼 = 그 수보다 작거나 같은 모든 양의 정수의 곱
 // - 기호(!)를 사용하여 n!으로 표기
 // - 예시) 4! = 4 * 3 * 2 * 1
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 // fibonacci 함수를 재귀 호출 방식으로 작성
 // 참고: https://bit.ly/fibonacci-util
 // - 피보나치 수 = 처음과 두번째 항은 1이고, 그 뒤 모든 항은 바로 앞 두 항을 더한 합인 수열
 // 예시) 1, 1, 2, 3, 5, 8, ...
+
+
+function fibo(n){
+  if(n <= 0) return 0;
+  if(n <= 2) return 1;
+
+  return fibo(n-1) + fibo (n-2)
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 // -----------------------------------------------------------------------
@@ -60,6 +125,41 @@
 // 메모이제이션을 사용한 fibonacci 함수를 작성해보세요.
 // 참고: https://bit.ly/memoiz
 // - 동일 계산 반복 시, 이전 계산 값을 메모리에 저장하여 실행 속도를 높이는 방법
+
+
+
+// const cache = {}
+
+
+// const memofibo = (n) => {
+//   if( n <= 0 ) return 0;
+//   if( n <= 2 ) return 1;
+
+//   if(cache[n]){
+//     return cache[n];
+//   }else{
+//     return cache[n] = memofibo(n-1) + memofibo(n-2);
+//   }
+// }
+
+
+// ⭐️⭐️⭐️⭐️⭐️ 메모피버 안에 .cache를 추가할수 있음!!! 함수지만 객체니까!! ⭐️⭐️⭐️⭐️⭐️
+// 자스 미친놈..
+
+const memofibo = (n) => {
+  if( n <= 0 ) return 0;
+  if( n <= 2 ) return 1;
+
+  if(memofibo.cache[n]){
+    return memofibo.cache[n];
+  }else{
+    return memofibo.cache[n] = memofibo(n-1) + memofibo(n-2);
+  }
+}
+
+memofibo.cache = {}
+
+
 
 
 // 회사 부서 팀원들의 월급 총 합을 구해보세요.
@@ -106,3 +206,29 @@ const SocialPartiners = {
     },
   },
 };
+
+
+
+
+function sumSalaries(department){
+  
+  if(Array.isArray(department)){
+
+    return department.reduce((acc,cur)=> acc + cur.salary,0)
+
+  }else{
+    let sum = 0;
+
+    for(let sub of Object.values(department)){
+      sum += sumSalaries(sub)
+    }
+    return sum;
+
+  }
+}
+
+
+const total = sumSalaries(SocialPartners);
+
+
+console.log( total );
