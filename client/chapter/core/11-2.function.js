@@ -49,6 +49,10 @@ let calculateTotal = function (){
   // })
 
 // reduce => 배열을 순환 => 값을 반환 문자,숫자,불린,배열,객체.....
+// 코드를 줄여씀..
+// 초기값 설정을 하는 독특함과 장점..
+// 값을 반환하기 때문에 return을 꼭! 꼭 필수!
+
   // arr.reduce(function(acc,cur){
   //   return acc + cur 
   // },0)
@@ -57,6 +61,8 @@ let calculateTotal = function (){
   // return arr.reduce((acc,cur)=> acc + cur)
 
 
+
+  
   // arguments 
   // 한번만 빌려쓰는 방법
   
