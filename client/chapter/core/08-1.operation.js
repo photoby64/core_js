@@ -80,7 +80,13 @@ let second = [4,5,6];
 
 
 // concat.()
+// 기존 배열이나 문자열을 변경하지 않고
+// 새로운 배열이나 문자열을 반환
+// 👎🏻 옛날 방식이라 잘 안씀
+
+
 // [1] 배열에서의 concat 
+console.log('🔥');
 const mix = first.concat(second);
 console.log(mix);
 
@@ -99,9 +105,53 @@ console.log(fullGreeting);
 
 
 
-// 다시 정리..
+// 🔥다시 정리🔥
+
 // 함수: 독립적으로 존재하는 코드 블록.
 // 메서드: 객체에 속한 함수, 객체를 통해 호출.
+
+
+
+/* */
+// function name(params: 인자) {
+  
+// }
+
+// function greet(name) { // name: 인자 = params
+//   console.log('Hello, ' + name);
+// }
+
+// greet('Alice'); // Alice: 인수 = Argument
+
+
+
+
+
+// ... spread operatar 전개 연산자 <= 기호 자체를 의미
+//  배열, 객체, 함수 인수에서 요소들을 쉽게 펼치거나 복사
+
+// spread syntax 전개 구문
+
+console.log(...first, ...second);
+
+let spreadMix = [...first, ...second];
+console.log(spreadMix);
+
+//[예제]//
+console.log('❗️');
+const arr1 = [1, 2];
+const arr2 = [3, 4];
+
+
+// 배열의 요소들을 개별적으로 펼쳐서 여러 개의 인수로 전달하는 방식
+// 배열의 요소들을 개별 인수로 전달하는 거예요. 즉, 여러 값을 분리해서 출력하고 싶을 때 사용
+
+console.log(...arr1, ...arr2);
+
+// 배열을 결합하여 새로운 배열을 생성하는 방식
+const combinedArray = [...arr1, ...arr2];
+console.log(combinedArray);
+
 
 
 // a는 전역변수로 선언 된듯..
@@ -138,3 +188,16 @@ let onlyWorkDefaultValues = [1,2,3] + [4,5,6];
 
 let count = 10;
 let total = (count % 4) * (count /= 2) + count ** 3; // ?
+
+
+// let total = (10 % 4) * (5) + 5 ** 3; // ?
+// let total = (2) * (5) + 125; // ?
+// let total = 10 + 125; // ?
+// let total = 135;
+
+
+
+
+
+
+
