@@ -26,6 +26,7 @@ const frontEndDev = [
 
 /* 프론트엔드 개발 집합 항목 출력 ---------------------------------------------- */
 
+
 // console.log(frontEndDev[0]);
 // console.log(frontEndDev[1]);
 // console.log(frontEndDev[2]);

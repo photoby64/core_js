@@ -13,6 +13,7 @@
 
 
 // key:value 쌍으로 구성된 엔티티(entity) 데이터 구조
+
 let cssCode = /* css */ `
   .dialog {
     position: fixed;
@@ -216,6 +217,7 @@ let isLogin = true;
 
 
 
+
 // 프로퍼티 이름 제한
 // 예약어: class, if, switch, for, while, ...
 
@@ -246,7 +248,9 @@ const arr= [10, 100, 1000, 10_000];
 // a1을 제외한 나머지만도 가능
 
 
-// 기본값을 설정할 수 있음 = 머머머
+// 기본값을 설정할 수 있음 
+// a5는 값이 없지만 기본값을 설정할 수 있다.
+// 기본값은 할당이 되어 있을때만 작동한다. 이미 a5에 값이 할당되어 있다면 기본값은 반환되지 않는다.
 const [a1, a2, a3, a4, a5=100_000]= arr;
 
 
@@ -261,9 +265,83 @@ console.log();
 
 
 
+
+
+
+
 /* -------------------------------------------- */
 /* 객체 구조 분해 할당  destructuring assignments    */
 /* --------------------------------------------- */
+
+
+const salaries = {
+  김미리: 800,
+  박혜미: 130,
+  이성우: 400,
+  명재휘: 80
+}
+
+// 객체는 {}로 시작!
+// console.log(salaries);
+
+// 배열은 순서를 바꿀수 없지만 객체는 순서도 바꿀 수 있다!
+// 변수, 즉 값만 같다면 그 값을 꺼낼 수 있다.
+
+// 객체의 구조 분해 할당: 순서가 상관없고, 객체의 key와 변수의 이름이 동일해야 함.
+
+const {김미리, 박혜미: 박, 이성우, 명재휘, 이영범= 700} = salaries;
+
+console.log(이성우);
+
+
+// 변수의 명도 바꿀수 있다.
+// 변수의 이름 뒤에 ':'를 쓰고 새로운 별칭을 지어준다.
+
+console.log(박);
+// console.log(박혜미); // 출력: 에러
+
+console.log(명재휘); 
+
+function createUserObjcet1(name, age, address, phone, job){
+  return {name, age, address, phone,}
+}
+const user1= createUserObjcet1('박윤경', '18', '일본', '010-1234-5678');
+// 순서가 중요해지는데.. age값을 빼고 주소를 넣으면 내 나이가 일본이 됨 ㅠㅠ
+console.log(user1);
+
+
+
+
+function createUserObjcet({
+  name, 
+  age, 
+  address, 
+  phone, 
+  job
+}){
+
+
+  return {name, age, address, phone, job}
+}
+
+
+const data= {
+  name: '심선범',
+  age: 30, 
+  address: '중랑구',
+  phone: '010-1234-5678',
+  job: '강사',
+};
+
+const _data= {
+
+};
+
+const user = createUserObjcet(data);
+
+
+
+
 
 
 

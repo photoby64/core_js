@@ -3,6 +3,9 @@
 /* --------------------------- */
 
 
+// stack[스택]: 라스트인 퍼스트 아웃
+// Queue[큐]: 퍼스트인 퍼스트 아웃 선입선출
+
 
 
 function pow(x,n){
@@ -228,7 +231,7 @@ function sumSalaries(department){
 }
 
 
-const total = sumSalaries(SocialPartners);
+// const total = sumSalaries(SocialPartners);
 
 
-console.log( total );
+// console.log( total );
