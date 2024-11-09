@@ -47,7 +47,7 @@ console.log(grade);  // 'B' 출력
 // 이를 통해 null이나 undefined인 경우에만 기본값을 제공 할 수 있습니다.
 
 // 기본 문법
-// let result = value ?? defaultValue; 
+// value ?? defaultValue; 
 // value가 null 또는 undefined가 아니라면 value를 반환하고,
 // value가 null이나 undefined이면 defaultValue를 반환합니다.
 
@@ -60,9 +60,40 @@ console.log(username ?? "Guest");  // "Guest" (username이 undefined이므로 �
 username = "Alice";
 console.log(username ?? "Guest");  // "Alice" (username이 정의되어 있으므로 기본값 미사용)
 
+// console.log(a ||= b);
+
 // || 연산자와의 차이점
-// || 연산자는 false, 0, '' 같은 falsy 값도 null이나 undefind 처럼 처리하여 오른쪽 피연산자를 반환하지만 
+// || 연산자는 false, 0, '' 같은 falsy 값도 null이나 undefined 처럼 처리하여 오른쪽 피연산자를 반환하지만 
 // ?? 연산자는 null과 undefined 만을 확인 합니다.
+
+
+/*
+
+문제)
+let a = 10;
+let b = '';
+let value = Boolean(b);
+
+a = a || b
+a ||= b
+
+문제 1) a = a || b 
+
+tor 
+
+a = 10 || '' 
+// 출력 10
+
+
+문제 2) a ||= b
+
+만약 b의 값이 Truthy라면 a에 b의 값을 넣어줘. 
+
+10 || = ''
+tor
+10
+
+*/
 
 
 
@@ -214,3 +245,104 @@ let _value_ = null ?? undefined ?? null ?? "최종 값";
 let value3 = null ?? undefined ?? null ?? undefined; 
 // 출력: undefined
 // ??연산자가 모두 null이거나 undefined라면 마지막 값이 없음으로 마지막 null이나 undefined를 반환합니다.
+
+
+
+
+
+// 1. 사용자 (user) 상태
+// - 회원 / 비회원
+// - 회원 => 일반 / 프리미엄
+
+// 2. 할인 규칙
+// - 모든 사용자(회원, 비회원) 첫 구매 시 5% 할인이 적용됩니다.
+// - 일반 회원은 두 번째 구매부터 10% 할인을 받습니다.
+// - 프리미엄 회원은 항상 20% 할인을 받습니다.
+// - 비회원은 두 번째 구매부터 할인을 받을 수 없습니다. (2만원 이상일 경우 5% 할인은 부여됩니다.)
+
+// 3. 추가 조건
+// - 구매 금액이 2만원 이상일 경우, 추가로 5% 할인이 부여됩니다.
+
+
+
+function discountPrice(userSate, count, price) {
+
+  let discount = 0;
+
+  
+  if(count === 1) {
+    discount += 5;
+   
+  }
+  
+  if (userSate === '프리미엄 회원') {
+
+    discount =  discount + 20;
+    
+  }else if (userSate === '일반 회원' && count > 1){
+    discount = discount + 10;
+
+  }else if (userSate === '비회원' && count > 1){
+    discount = discount + 0;
+  }
+
+  if (price >= 2000) {
+    discount = discount + 5;
+    
+  }
+
+  const totalPrice = price - (price * (discount * 0.01));
+
+  return totalPrice
+
+  
+}
+console.log(discountPrice('프리미엄 회원', 2, 30000));
+
+
+
+/* function discountPrice(userState, count, price) {
+  let discount = 0;
+
+  // 상품 개수에 따른 추가 할인
+  if (count === 1) {
+    discount += 5;
+  }
+
+  // 회원 상태에 따른 할인
+  if (userState === '프리미엄 회원') {
+    discount += 20;
+  } else if (userState === '일반 회원' && count > 1) {
+    discount += 10;
+  }
+
+  // 가격이 2000원 이상일 경우 할인
+  if (price >= 2000) {
+    discount += 5;
+  }
+
+  // 총 가격 계산
+  const totalPrice = price * (1 - discount * 0.01);  // 가격에서 할인을 한 번에 빼는 방식
+
+  return totalPrice;
+}
+
+console.log(discountPrice('프리미엄 회원', 2, 30000));  // 출력: 24000
+
+
+
+*/
+
+
+
+
+/*
+
+<덧셈 할당 연산자>
+ 이 연산자는 왼쪽 변수에 오른쪽 값을 더하고, 그 결과를 왼쪽 변수에 할당하는 역할을 합니다.
+
+ discount += 20;는 
+ discount = discount + 20; 와 동일합니다. 
+ 
+
+*/

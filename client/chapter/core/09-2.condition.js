@@ -28,6 +28,7 @@ console.log(AandB);
 // 두 값을 비교해서 첫 번째 Truthy 값을 반환
 // T|| 
 // fnn - tor
+logicalSumOperator
 
 
 let AorB = a || b;
@@ -49,8 +50,13 @@ console.log(a);
 // Logical OR 할당 연산자
 // a가 Falsy일 때만 b의 값을 a에 할당한다. 
 // 여기서 a는 10이고, 이는 Truthy 값이므로 a에 변경이 일어나지 않고 그대로 10이 유지된다.
+
+//tor
 a ||= b
 console.log(a);
+
+// 정리: 
+// a ||= b  a가 false일때 b의 값을 a에 할당
 
 
 
