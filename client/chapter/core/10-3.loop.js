@@ -40,7 +40,6 @@ for(; p <= 10; ){
 
 
 
-console.clear();
 
 
 
@@ -69,7 +68,7 @@ while(i < l) {
 //   - 조건: SVG, jQuery는 출력하지 마세요.
 
 
-
+/*
 const frontEndDev = 'HTML CSS SVG JavaScript jQuery React Redux'.split(' ');
 
 let i = 0;
@@ -86,15 +85,13 @@ for (; i < l; i++) {
   
 }
 
-
+*/
 
 
 
 
 //   - 조건이 맞을 경우, 순환 중단(break)
 //   - 조건: JavaScript 까지만 출력하세요.
-
-
 
 
 

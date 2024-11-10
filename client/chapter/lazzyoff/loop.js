@@ -1,8 +1,9 @@
 /* 
+💫 반복문  loop
 
 
 
-반복문
+
 
 개발을 하다 보면 여러 동작을 반복해야 하는 경우가 종종 생깁니다.
 상품 목록에서 상품을 차례대로 출력하거나 숫자를 1부터 10까지 하나씩 증가시키면서 동일한 코드를 반복 실행해야 하는 경우같이 말이죠.
@@ -14,7 +15,7 @@
 
 
 
-[1] while 🔥
+1️⃣ while 🔥
 condition(조건)이 truthy 이면 반복문 본문의 코드가 실행됩니다.
 
 
@@ -35,7 +36,7 @@ while (condition) {
 
 
 
-[2] do…while 🔥
+2️⃣ do…while 🔥
 
 조건에 상관없이 최소한 한 번은 실행되는 것이 특징입니다. 
 다른 반복문과의 차이점은 조건을 반복문 뒤에 검사하기 때문입니다. 
@@ -106,7 +107,7 @@ do {
 
 
 
-[3] for 문🔥
+3️⃣ for 문🔥
 
 for 문은 주어진 조건이 참일 때 반복해서 실행할 코드를 정의할 수 있습니다. 
 for 문은 일반적으로 초기화, 조건 검사, 증감의 세 가지 구성을 가집니다.
@@ -266,6 +267,128 @@ let arr = [10, 20, 30, 40];
 for (let i = arr.length - 1; i >= 0; i--) {
   console.log(arr[i]);  // 40, 30, 20, 10 출력
 }
+
+
+
+
+
+
+
+
+✅ for in 문
+
+for...in 문은 객체의 속성을 '순환'하는 데 사용됩니다. 
+이 문법은 객체의 자신의 속성뿐만 아니라, 프로토타입 체인에 있는 상속된 속성까지 순환하게 됩니다. 
+따라서 자신의 속성만 순환하려면 hasOwnProperty()를 함께 사용해야 합니다.
+
+
+
+문법:
+for (let key in object) {
+  // key는 객체의 속성 이름
+  // object[key]는 속성의 값
+}
+
+
+
+
+-----------1차 배운 문법-------
+const obj= {};
+obj.nickName = 'tiger'
+
+for( const key in obj){
+  console.log(key);
+  
+}
+
+console.log(obj);
+
+-----------------------------
+
+
+
+
+1. 객체 자신의 속성만 순환
+예시: 
+
+const person = {
+  name: 'John',
+  age: 30,
+  greet() {
+    console.log('Hello');
+  }
+};
+
+// 객체의 프로토타입 체인에 있는 속성까지 순환되지 않도록 hasOwnProperty 사용
+
+for (let key in person) {
+  if (person.hasOwnProperty(key)) {
+    console.log(key + ': ' + person[key]);
+  }
+}
+
+이 코드에서 hasOwnProperty(key)를 사용하여 상속된 속성을 제외하고 자신의 속성만 출력하도록 합니다.
+
+
+
+
+
+
+
+
+
+
+
+
+2. 배열 객체 순환에 사용할 경우 ... 일반적으로 배열의 순서는 for...of 문 권장
+
+
+for...in 문은 배열에도 사용할 수 있지만 배열의 인덱스가 문자열로 다뤄지기 때문에, 
+배열의 순서를 보장하지 않거나 인덱스 외의 속성까지 순환될 수 있습니다. 
+또한, 배열의 숫자 인덱스를 순차적으로 순환하는 데에는 for 문이나 for...of 문이 더 적합합니다.
+
+
+예시: 배열 순환
+const array = ['apple', 'banana', 'cherry'];
+
+// 배열에서 for...in 사용
+for (let index in array) {
+  console.log(index + ': ' + array[index]);
+}
+
+// 출력:
+// 0: apple
+// 1: banana
+// 2: cherry
+
+
+위 코드에서 for...in 문은 배열의 인덱스를 문자열로 처리하므로, 배열 인덱스 순서와 관계 없이 순환할 수 있습니다. 
+일반적으로 배열의 순서를 보장하려면 for 문이나 for...of 문을 사용하는 것이 좋습니다.
+
+
+
+
+
+
+
+🔥 for...of로 배열 순환
+const array = ['apple', 'banana', 'cherry'];
+
+// 배열에서 for...of 사용
+for (let value of array) {
+  console.log(value);
+}
+
+// 출력:
+// apple
+// banana
+// cherry
+
+
+for...of 문은 배열의 값만 순차적으로 순환하며, 배열 순서를 보장하고 인덱스에 대한 걱정 없이 값을 처리할 수 있습니다
+
+
+
 
 
 

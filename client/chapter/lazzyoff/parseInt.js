@@ -1,8 +1,5 @@
 /* 
-
-
-
-parseInt()
+🎭 parseInt()
 
 
 
