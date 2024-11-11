@@ -25,7 +25,7 @@ const family= ['주원', '승협', '윤경']; family
 
 
 
-**JavaScript 상속(Prototype Inheritance)**은 
+**JavaScript 상속(Prototype Inheritance 인헤리턴스)**은 
 객체가 다른 객체로부터 **속성(property)**과 **메서드(method)**를 상속받는 개념입니다. 
 여기서 중요한 것은 객체의 속성/메서드를 '다른 객체가 물려받는다는 점'입니다.
 즉, 자바스크립트의 상속은 객체가 다른 객체로부터 속성이나 메서드를 물려받는 메커니즘 입니다.

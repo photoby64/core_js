@@ -197,5 +197,5 @@ for( const key in obj){
   
 }
 
-console.log(obj);
+
 
