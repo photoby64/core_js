@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "dev": "concurrently \"live-server client --host=localhost --port=5500 --no-browser\" \"live-server chapter/00.yk --host=localhost --port=5501 --no-browser\"",
+    "dev": "concurrently \"live-server client --host=localhost --port=5500 --no-browser\" \"live-server client/chapter/00.yk --host=localhost --port=5501 --no-browser\"",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
