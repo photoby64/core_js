@@ -145,6 +145,9 @@ button ?.addEventListener('click', () => {
 // ???? 필기 못함
 
 
+// requestAnimationFrame(animation) 애니메이션 함수
+
+
 // let counter = 0;
 
 // function animation() {
