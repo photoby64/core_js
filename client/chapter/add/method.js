@@ -19,6 +19,31 @@ JavaScript에서는 클래스 내에서 정의된 함수들이 메서드라고 �
 
 
 
+
+
+
+
+객체의 static method
+
+const keys = Object.keys(obj); 
+// 객체의 key들을 모아 새로운 배열을 '반환' 하는 유틸 함수
+
+
+const values = Object.values(obj); 
+// 객체의 value들을 모아 새로운 배열을 '반환' 하는 유틸 함수
+
+
+const entries = Object.entries(obj); 
+// 객체의 [key,value]들을 모아 한 쌍의 배열을 이루는 새로운 배열을 '반환' 하는 유틸 함수
+
+
+
+
+
+
+
+
+
 예시로 살펴보기:*/
 const person = {
   name: "Alice",
