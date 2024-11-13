@@ -10,46 +10,13 @@
 
 
 
-// 함수 선언
 
-function getRandomValue(){
-  return Math.random() > 0.5 ? 1 : 0
-}
-
-console.log(getRandomValue()); // 1 또는 0 중 하나 출력
-
-function calcPrice(
-  priceA,
-  priceB = getRandomValue(), 
-  priceC = getRandomValue(),
-  priceD = getRandomValue(),
-){
-
-  if(!priceA){
-    throw new Error('calcPrice 함수는 1개 이상의 매개변수를 설정해야 합니다.')
-  }
-
-
-
-  if(priceD === undefined) priceD = 0;
-  if(!priceD) priceD = 0;
-  priceD = priceD || 100;
-  priceD ||= 0;
-  priceD = priceD ?? 100;
-  priceD ??= 100;
-
-
-
-
-  return priceA+ priceB+ priceC + priceD
-
-}
 
 
 // 함수 호출
 
-const result = calcPrice();
-console.log(result);
+// const result = calcPrice();
+// console.log(result);
 
 
 // 함수 값 반환
@@ -68,7 +35,81 @@ console.log(result);
 /* 다음 함수를 작성해봅니다. -------------------------------------------------- */
 
 // rem(pxValue: number|string, base: number):string;
-let rem;
+
+// 다음은 rem 함수의 정의입니다. 
+// 이 함수는 픽셀(px) 값을 rem 단위로 변환해주는 함수로, 기본적으로 16px = 1rem을 기준으로 계산합니다.
+// rem 함수를 호출하여, pxValue를 rem 단위로 변환
+
+
+
+// let rem;
+
+function rem(pxValue, base=16){ //16px
+
+  if(!pxValue) throw new Error('rem 함수의 첫 번째 인수는 필수 입력 값 입니다.');
+
+  if (typeof base === 'string') throw new TypeError('rem 함수의 두 번째 인수는 숫자 타입 이어야 합니다.')
+    
+    if (typeof pxValue === 'string'){
+      pxValue = parseInt(pxValue,10)
+    }
+
+    return pxValue / base + 'rem'
+}
+
+
+
+
+//  HTML의 style 변경하기
+
+
+
+function setStyle(className, color) {
+  document.querySelector('.' + className).style.color = color;
+}
+
+setStyle('second', 'pink');
+
+// document.querySelector('.first').style.color = blue;
+
+const first = document.querySelector('.first');
+
+
+
+function setCss(node,prop,value){
+  
+  if(typeof node === 'string') node = document.querySelector(node);
+
+  if(!(prop in document.body.style)) throw new ReferenceError('setCss 함수의 두 번째 인수는 유효한 css 속성 이어야 합니다.');
+  
+  if(!value) throw new Error('setCss 함수의 세 번째 인수는 필수 입력 값 입니다.');
+
+  node.style[prop] = value;
+
+}
+
+setCss('.first', 'color', 'blue')
+
+
+
+
+
+
+function getCss(node,prop){
+
+  if(typeof node === 'string'){
+    node = document.querySelector(node);
+  }
+
+  if(!(prop in document.body.style)) {
+    throw new ReferenceError('getCss 함수의 두 번째 인수는 유효한 css 속성 이어야 합니다.');
+  }
+
+  return getComputedStyle(node)[prop]
+
+}
+
+// document.querySelector('.first').style.color = blue;
 
 
 
