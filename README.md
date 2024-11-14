@@ -9,30 +9,6 @@
 
 - main branch [바로가기](https://github.com/photoby64/core_js)
 - core branch [바로가기](https://github.com/photoby64/core_js/tree/01.core)
+- dom branch [바로가기](https://github.com/photoby64/core_js/tree/02.dom)
 
 ---
-
-### 🌈 Basic
-
-- [x] Code Structure [바로가기](https://github.com/photoby64/core_js/blob/01.core/client/chapter/core/01.codeStructure.js)
-- [x] Variable [바로가기](https://github.com/photoby64/core_js/blob/01.core/client/chapter/core/02.variable.js)
-- [x] Strict Mode [바로가기](https://github.com/photoby64/core_js/blob/01.core/client/chapter/core/03.strictMode.js)
-- [x] Global This [바로가기](https://github.com/photoby64/core_js/blob/01.core/client/chapter/core/04.globalThis.js)
-- [x] Legacy Var [바로가기](https://github.com/photoby64/core_js/blob/01.core/client/chapter/core/05.legacyvar.js)
-- [x] Data Types [바로가기](https://github.com/photoby64/core_js/blob/01.core/client/chapter/core/06.dataTypes.js)
-- [x] Type Conversion [바로가기](https://github.com/photoby64/core_js/blob/01.core/client/chapter/core/07.typeConversion.js)
-
-
-
----
-
-## 🎃 Operations
-- [x] Operations (기본 연산자) [바로가기](https://github.com/photoby64/core_js/blob/01.core/client/chapter/core/08-1.operations.js)
-- [x] Operations (비교 연산자) [바로가기](https://github.com/photoby64/core_js/blob/01.core/client/chapter/core/08-2.operations.js)
-
-
----
-## 💕 Condition
-- [x] Condition (if조건문) [바로가기](https://github.com/photoby64/core_js/blob/01.core/client/chapter/core/09-1.condition.js)
-- [x] Condition (논리연산자) [바로가기](https://github.com/photoby64/core_js/blob/01.core/client/chapter/core/09-2.condition.js)
-- [x] Condition (switch..case) [바로가기](https://github.com/photoby64/core_js/blob/01.core/client/chapter/core/09-3.condition.js)
