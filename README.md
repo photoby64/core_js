@@ -4,7 +4,7 @@
 ## 🦁 멋쟁이 사자차럼
 ---
 
-### 코어 자바스크립트 학습 저장소
+### 자바스크립트 학습 저장소
 
 ---
 
@@ -12,4 +12,6 @@
 학습 자료는 해당 브랜치로 이동 후 확인할 수 있습니다.
 
 
-1. Javascript core branch [바로가기](https://github.com/photoby64/core_js/tree/01.core)
+- Javascript main branch [바로가기](https://github.com/photoby64/core_js/tree/01.core)
+- core branch [바로가기](https://github.com/photoby64/core_js/tree/01.core)
+- dom branch [바로가기](https://github.com/photoby64/core_js/tree/02.dom)
