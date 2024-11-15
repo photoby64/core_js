@@ -4,6 +4,8 @@ function getNode(node, context = document) {
   return context.querySelector(node);
 
 }
+// getNode('.about' )
+
 
 function getNodes(node, context = document) {
 

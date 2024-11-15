@@ -13,7 +13,9 @@ const types = {
 }
 
 const dom = {
-  getNode:true
+  getNode:true,
+  insertLast:true,
+  syntaxError:true,
 }
 
 export default [

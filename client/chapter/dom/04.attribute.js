@@ -3,12 +3,6 @@
 /* ------------------------------------ */
 
 
-
-// HTML 속성은 요소의 초기 설정값을 정의하며, 태그 내부에 직접 작성됩니다(예: <input type="text">).
-// JavaScript 속성은 HTML 요소의 현재 상태를 동적으로 제어할 수 있으며, element.property 형태로 접근하여 변경할 수 있습니다(예: inputElement.type = "text").
-
-
-
 /* HTML 속성 ------------------------------------------------------------- */
 
 // 브라우저는 HTML 태그를 해석해 DOM 객체를 만들 때 HTML 표준 속성을 인식하고, 
@@ -36,29 +30,44 @@
 
 
 
+// setAttr()
 
 
 const about = getNode('.about');
 
-// 1. class 속성이 있는지 확인
-console.log(about.hasAttribute('class'));
+
+// 1. class 속성이 있는지 확인 
+console.log( about.hasAttribute('class') );
+
 
 // 2. class의 값을 가져와주세요.
-console.log(about.getAttribute('class'));
+// console.log( about.getAttribute('class') );
+console.log( getAttr('.about','class') );
+
 
 // 3. id의 값을 어바웃으로 설정해주세요
-about.setAttribute('id', '어바웃');
+about.setAttribute('id','어바웃');
+
 
 // 4. data-name의 속성을 제거해주세요
 about.removeAttribute('data-name');
 
-// 5. data-value의 값을 100으로 설정해주세요
-// about.setAttribute('data-value', 100);
-about.dataset.value = 100;
+
+// 5. data-value의 값을 100 으로 설정해주세요
+// about.setAttribute('data-value',100);
+about.dataset.value = 100
+
 
 // 6. data-value의 값을 가져와 주세요
-// console.log(about.getAttribute('data-value'));
-console.log(about.dataset.value);
+// console.log( about.getAttribute('data-value') );
+console.log( about.dataset.value );
+
+
+
+// JavaScript Object Notation
+
+
+// JSON
 
 
 
@@ -66,12 +75,7 @@ console.log(about.dataset.value);
 
 
 
-function getAttr(node,prop){
 
-  if(isString(node)) node = getNode(node);
-  return node.getAttribute(prop)
-
-}
 
 
 
