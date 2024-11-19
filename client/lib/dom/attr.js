@@ -1,3 +1,6 @@
+import { isString, isUndefined } from '../utils/type.js';
+import { getNode } from "./getNode.js";
+import { typeError } from "../error/typeError.js";
 
 function getAttr(node,prop){
 
@@ -9,7 +12,6 @@ function getAttr(node,prop){
   return node.getAttribute(prop)
 
 }
-// getAttr('.about','id')
 
 
 function setAttr(node,prop,value){
@@ -31,28 +33,36 @@ function setAttr(node,prop,value){
   node.setAttribute(prop,value);
 
 }
-// setAttr('.about','data-name','안녕');
 
 
-
-
-
-
-
-
-
-
-
-// function attr(node, prop, value) {
-//   if (!value) {
-//     return getAttr(node, prop);
-//   } else {
-//     return setAttr(node, prop, value);
+// function attr(node,prop,value){
+  
+//   if(!value){
+//     return getAttr(node,prop)
+//   }else{
+//     setAttr(node,prop,value)
 //   }
 // }
 
-const attr = (node, prop, value) =>
-  !value ? getAttr(node, prop) : setAttr(node, prop, value);
+export  const attr = (node,prop,value) => !value ? getAttr(node,prop) : setAttr(node,prop,value)
 
 // attr('.about','id') // getter
 // attr('.about','id','star') // setter
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
