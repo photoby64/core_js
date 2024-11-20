@@ -55,26 +55,26 @@ const recordListWrapper = getNode('.recordListWrapper');
 let count = 0;
 let total = 0;
 
+function createItem(value){
+  const template = `
+  <tr>
+    <td>${++count}</td>
+    <td>${diceNumber}</td>
+    <td>${total += diceNumber}</td>
+  </tr>
+ `
+ return template
+}
+
 function renderRecordItem(){
 
   // const diceNumber = +attr(getNode('#cube'), 'dice')
   const diceNumber = getNode('#cube').getAttribute('dice');
 
-
-
   //console.log(  diceNumber );
 
-  
-  
-  const template = `
-    <tr>
-      <td>${++count}</td>
-      <td>${diceNumber}</td>
-      <td>${total += diceNumber}</td>
-    </tr>
-  `
-  
-  insertLast('tbody',template)
+
+  insertLast('tbody',createItem(diceNumber))
   
 }
 
@@ -109,5 +109,14 @@ function handleRecord(){
 }
 
 
+function handlerReset(){
+
+  let count = 0;
+  let total = 0;
+
+  
+}
+
 rollingButton.addEventListener('click',handleRollingDice);
 recordButton.addEventListener('click',handleRecord);
+resetButton.addEventListener('click', handlerReset);
