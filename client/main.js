@@ -14,30 +14,21 @@ import {
 
 const [rollingButton, recordButton, resetButton] = getNodes('.buttonGroup > button')
 
-let isClicked = false;
-let stopAnimation
-
-const handlerRollingDice = () => {
-
-  if(!isClicked){
-    console.log('첫번째');
-  stopAnimation = setInterval(()=>{
-      diceAnimation()
-    },100)
-    
-  }else{
-    console.log('두번째');
-    clearInterval(stopAnimation)
 
 
+const handleRollingDice = () => {
+  let isClicked = false;
+  let stopAnimation;
 
-  }
-
-  isClicked = !isClicked
-
-
-
-}
+  return () => {
+      if (!isClicked) {
+          stopAnimation = setInterval(diceAnimation, 100);
+      } else {
+          clearInterval(stopAnimation);
+      }
+      isClicked = !isClicked;
+  };
+};
 
 
 rollingButton.addEventListener('click',handlerRollingDice)
