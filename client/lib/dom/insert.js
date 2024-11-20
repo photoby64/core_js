@@ -28,4 +28,3 @@ export function insertAfter(node,text){
   node.insertAdjacentHTML('afterend',text);
 
 }
-

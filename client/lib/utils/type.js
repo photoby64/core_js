@@ -1,4 +1,8 @@
 
+
+
+
+
 const typeOf = data => Object.prototype.toString.call(data).slice(8,-1).toLowerCase()
 
 
@@ -12,12 +16,6 @@ export const isFunction = data => typeOf(data) === 'function'
 export const isMath = data => typeOf(data) === 'math'
 export const isUndefined = data => typeOf(data) === 'undefined'
 export const isNumericString = data => isNaN(Number(data))
-
-
-
-
-
-
 
 
 

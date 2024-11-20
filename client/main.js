@@ -1,4 +1,15 @@
-import { diceAnimation, getNodes, getNode, insertLast, attr } from "./lib/index.js";
+
+
+import { 
+  memo, 
+  attr, 
+  getNode, 
+  getNodes, 
+  endScroll, 
+  insertLast, 
+  clearContents,
+  diceAnimation, 
+ } from "./lib/index.js";
 
 
 
@@ -17,7 +28,6 @@ const recordListWrapper = getNode('.recordListWrapper');
 // [애니메이션이 될 수 있도록 만들어 주세요]
 // 1. setInterval
 // 2. diceAnimation()
-
 
 
 // [같은 버튼 눌렀을 때 ]
@@ -42,39 +52,39 @@ const recordListWrapper = getNode('.recordListWrapper');
 // [table 안쪽에 tr 태그에 데이터를 넣고 랜더링]
 
 
+// [Item의 갯수가 많아짐에 따라 스크롤을 제일 하단으로 올 수 있도록]
+// 1. scrollTop 
+// 2. scrollHeight
 
 
+// [reset버튼을 눌렀을 때 모든 항목 초기화]
+// hidden
+// 변수 초기화 
 
-
-{/* <tr>
-<td>0</td>
-<td>5</td>
-<td>5</td>
-</tr> */}
 
 let count = 0;
 let total = 0;
 
 function createItem(value){
   const template = `
-  <tr>
-    <td>${++count}</td>
-    <td>${diceNumber}</td>
-    <td>${total += diceNumber}</td>
-  </tr>
- `
- return template
+    <tr>
+      <td>${++count}</td>
+      <td>${value}</td>
+      <td>${total += value}</td>
+    </tr>
+  `
+  return template
 }
+
+
 
 function renderRecordItem(){
 
-  // const diceNumber = +attr(getNode('#cube'), 'dice')
-  const diceNumber = getNode('#cube').getAttribute('dice');
-
-  //console.log(  diceNumber );
-
-
+  // const diceNumber = +attr(getNode('#cube'),'dice')
+  const diceNumber = +memo('cube').getAttribute('dice')
+  
   insertLast('tbody',createItem(diceNumber))
+
   
 }
 
@@ -102,21 +112,18 @@ const handleRollingDice = (() => {
 
 function handleRecord(){
   recordListWrapper.hidden = false;
-
-
   renderRecordItem();
+  endScroll(recordListWrapper);
 
 }
 
-
-function handlerReset(){
-
-  let count = 0;
-  let total = 0;
-
-  
+function handleReset(){
+  recordListWrapper.hidden = true;
+  clearContents('tbody');
+  count = 0;
+  total = 0;
 }
 
 rollingButton.addEventListener('click',handleRollingDice);
 recordButton.addEventListener('click',handleRecord);
-resetButton.addEventListener('click', handlerReset);
+resetButton.addEventListener('click',handleReset);

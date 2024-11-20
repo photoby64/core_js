@@ -1,3 +1,4 @@
+
 import { isString, isUndefined } from '../utils/type.js';
 import { getNode } from "./getNode.js";
 import { typeError } from "../error/typeError.js";
@@ -48,21 +49,3 @@ export  const attr = (node,prop,value) => !value ? getAttr(node,prop) : setAttr(
 
 // attr('.about','id') // getter
 // attr('.about','id','star') // setter
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
