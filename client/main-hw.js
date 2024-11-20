@@ -1,6 +1,7 @@
 // named export -> {} 필수! :  import { getNode } from
 // default export -> 중갈호 없이 받을 수 있고, 딱 한개만 내보낼 수 있음 앞에 export defult로 씀.
 
+// export 던지고 import 받는다.
 
 
 // import { getNode } from "/lib/dom/getNode.js";
