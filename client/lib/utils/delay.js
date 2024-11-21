@@ -60,15 +60,19 @@ p.then((res)=>{
 
 
 function delayP(){
-  const p = new Promise((resolve,reject)=>{
 
-    if(condition){
+  return new Promise((resolve,reject)=>{
+
+    if(true){
       resolve('성공')
     }else{
       reject('실패')
     }
   });
-
-  return p
-
 }
+
+
+delayP()
+.then((res)=>{
+  console.log( res );
+})
