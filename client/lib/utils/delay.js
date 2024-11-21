@@ -1,4 +1,5 @@
 import { getNode } from '../dom/getNode.js';
+import { isNumber,isObject } from './type.js';
 
 function delay(callback, timeout = 1000) {
   setTimeout(callback, timeout);
@@ -50,10 +51,17 @@ const defaultOptions = {
 
 function delayP(options) {
 
-  let config = {...defaultOptions,...options}
-  
+  let config = {...defaultOptions}
 
+  if(isNumber(options)){
+    config.timeout = options;
+  }
+
+  if(isObject(options)){
+    config = {...defaultOptions,...options}
+  }
   const {shouldRejected,data,errorMessage,timeout} = config
+
   return new Promise((resolve, reject) => {
     setTimeout(() => {
       if (!shouldRejected) {
@@ -67,10 +75,7 @@ function delayP(options) {
 }
 
 
-
-delayP({
-  timeout:2000
-})
+delayP(2000)
 
 // delayP(false)
 // .then((res)=>{ 

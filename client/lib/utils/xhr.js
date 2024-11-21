@@ -1,4 +1,4 @@
-const END_POINT = 'https://jsonplaceholder.typicode.com/users/2';
+const END_POINT = 'https://jsonplaceholder.typicode.com/user';
 
 // [readyState]
 // 0 : uninitialized
@@ -10,6 +10,9 @@ const END_POINT = 'https://jsonplaceholder.typicode.com/users/2';
 
 
 
+/* -------------------------------------------- */
+/*                   callback                   */
+/* -------------------------------------------- */
 
 function xhr({
   method = 'GET',
@@ -77,7 +80,6 @@ xhr.get = (url,success,fail) => {
   xhr({ url, success, fail })
 }
 
-
 xhr.post = (url,body,success,fail) => {
   xhr({
     method:'POST',
@@ -97,6 +99,7 @@ xhr.put = (url,body,success,fail) => {
     fail
   })
 }
+
 xhr.delete = (url,success,fail) => {
   xhr({
     method:'DELETE',
@@ -117,35 +120,62 @@ xhr.delete = (url,success,fail) => {
 // )
 
 
+
+
+
+
+
+
+/* -------------------------------------------- */
+/*                    promise                   */
+/* -------------------------------------------- */
+
+
+
 // mixin
 
 
+const defaultOptions = {
+  method:'GET',
+  url:'',
+  body:null,
+  errorMessage:'서버와의 통신이 원활하지 않습니다.',
+  headers:{
+    'Content-Type':'application/json',
+    'Access-Control-Allow-Origin':'*'
+  }
+}
 
 
+function xhrPromise(options = {}){
 
-
-
-
-
-
-function xhrPromise(options){
-
-
-  const {method,url} = options;
+  const {method,url,errorMessage,body,headers} = {
+    ...defaultOptions,
+    ...options,
+    headers:{
+      ...defaultOptions.headers,
+      ...options.headers
+    }
+  }
 
   const xhr = new XMLHttpRequest();
 
   xhr.open(method,url);
-  xhr.send();
+  
+  if(!method === 'DELETE'){
+    Object.entries(headers).forEach(([k,v])=>{
+      xhr.setRequestHeader(k,v)
+    })
+  }
+  
+  xhr.send(body ? JSON.stringify(body) : null);
   
   return new Promise((resolve,reject)=>{
      xhr.addEventListener('readystatechange',()=>{
       if(xhr.readyState === 4){ // complete
         if(xhr.status >= 200 && xhr.status < 400){
-          //
           resolve(JSON.parse(xhr.response))
         }else{
-          //
           reject({message:'데이터 통신이 원활하지 않습니다.'})
         }
       }
@@ -161,8 +191,9 @@ xhrPromise({
 })
 .then((res)=>{
   console.log( res );
-
+  
 })
 .catch((err)=>{
   console.log( err );
+  
 })
