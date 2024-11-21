@@ -117,7 +117,15 @@ xhr.delete = (url,success,fail) => {
 // )
 
 
-// 프라미스 방식!!!
+// mixin
+
+
+
+
+
+
+
+
 
 
 function xhrPromise(options){
