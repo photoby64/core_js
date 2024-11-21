@@ -115,3 +115,46 @@ xhr.delete = (url,success,fail) => {
 //     console.log( data );
 //   }
 // )
+
+
+// 프라미스 방식!!!
+
+
+function xhrPromise(options){
+
+
+  const {method,url} = options;
+
+  const xhr = new XMLHttpRequest();
+
+  xhr.open(method,url);
+  xhr.send();
+  
+  return new Promise((resolve,reject)=>{
+     xhr.addEventListener('readystatechange',()=>{
+      if(xhr.readyState === 4){ // complete
+        if(xhr.status >= 200 && xhr.status < 400){
+          //
+          resolve(JSON.parse(xhr.response))
+        }else{
+          //
+          reject({message:'데이터 통신이 원활하지 않습니다.'})
+        }
+      }
+     })
+  })
+}
+
+
+
+xhrPromise({
+  method:'GET',
+  url:END_POINT
+})
+.then((res)=>{
+  console.log( res );
+
+})
+.catch((err)=>{
+  console.log( err );
+})
