@@ -21,50 +21,42 @@ const END_POINT= 'https://jsonplaceholder.typicode.com/users';
 
 
 
-function xhr(method,url,callback){
-
+function xhr(method,url,success,fail){
+  
   const xhr = new XMLHttpRequest();
-// console.log(xhr)
 
-xhr.open('GET',END_POINT);
+  xhr.open(method,url);
 
+  xhr.addEventListener('readystatechange',()=>{
 
+    if(xhr.readyState === 4){
 
+      if(xhr.status >= 200 && xhr.status < 400){
 
+        const data = JSON.parse(xhr.response);
 
-
-
-
-xhr.addEventListener('readystatechange', ()=>{
-
-  if(xhr.readyState === 4){
-
-    if(xhr.status >= 200 && xhr.status < 400){
-      // console.log(JSON.parse(xhr.response));
-      const data = JSON.parse(xhr.response);
-      callback(data)
-
-      
-    }else{
-      // console.log('실패');
-    fail({message:'알수없는 오류가 발생'})
+        success(data)
+        
+      }else{
+        fail({message:'알 수 없는 오류가 발생했습니다.'})
+      }
     }
-  }
-  //console.log(xhr.readyState);
-})
-
-
-
-xhr.send();
-
-
+  })
+  xhr.send();
 }
 
-xhr('GET', END_POINT,(callback)=>{ 
-  console.log(callback);
 
-},(error)=>{
-  console.log(err.message);
+const obj = {
+  name:'yk',
+  age:10
+};
 
 
+
+xhr('GET',END_POINT,(data)=>{
+  console.log( data );
+  
+},(err)=>{
+  console.log( err.message );
+  
 })
