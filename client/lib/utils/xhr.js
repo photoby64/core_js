@@ -1,40 +1,61 @@
-
-
+const END_POINT = 'https://jsonplaceholder.typicode.com/users';
 
 // [readyState]
 // 0 : uninitialized
 // 1 : loading
 // 2 : loaded
 // 3 : interactive
-// 4 : complete => 성공, 실패 둘다 포함됨.
-
-// 0:아무일도없음 1:로딩중 2:로딩이완료된상태 3:interactive 4:완료 
-
-// Endpoint(엔드포인트)**는 일반적으로 API 요청을 보낼 대상 URL을 의미
-
-// 콜백은 인수로 함수를 던지는것. 안에 있는 데이터를 꺼낼때
+// 4 : complete  => 성공 | 실패
 
 
 
 
-const END_POINT= 'https://jsonplaceholder.typicode.com/users';
 
-
-
-function xhr(method,url,success,fail){
+function xhr({
+  method = 'GET',
+  url = '',
+  success = null,
+  fail = null,
+  body = null,
+  headers = {
+    'Content-Type':'application/json',
+    'Access-Control-Allow-Origin':'*'
+  }
+} = {}){
+   
   
   const xhr = new XMLHttpRequest();
 
+  
   xhr.open(method,url);
 
+  // 객체의 key와 value를 분리(Object.entries)
+  // 반복문 forEach
+  if (method !== 'DELETE') {
+    Object.entries(headers).forEach(([k, v]) => {
+      xhr.setRequestHeader(k, v);
+    });
+  }
+  
+  
+
+  
+
+  // xhr.setRequestHeader(key,value);
+
+
+  
+
+  xhr.setRequestHeader('Content-Type','application/json');
+
   xhr.addEventListener('readystatechange',()=>{
+    const {status,response,readyState} = xhr;
 
-    if(xhr.readyState === 4){
+    if(readyState === 4){
 
-      if(xhr.status >= 200 && xhr.status < 400){
+      if(status >= 200 && status < 400){
 
-        const data = JSON.parse(xhr.response);
-
+        const data = JSON.parse(response);
         success(data)
         
       }else{
@@ -42,21 +63,24 @@ function xhr(method,url,success,fail){
       }
     }
   })
-  xhr.send();
+  xhr.send(JSON.stringify(body));
 }
 
 
+
 const obj = {
-  name:'yk',
-  age:10
-};
+  name:'tiger',
+  age:38
+}
 
 
-
-xhr('GET',END_POINT,(data)=>{
-  console.log( data );
-  
-},(err)=>{
-  console.log( err.message );
+xhr({
+  method:'DELETE',
+  url: END_POINT,
+  success: (data)=>{
+    console.log( data );
+  },
+  fail: ()=>{},
+  // body:obj,
   
 })
