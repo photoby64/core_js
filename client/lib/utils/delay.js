@@ -59,20 +59,37 @@ p.then((res)=>{
 // 프라미스 객체를 반환하는 함수 => 재사용
 
 
-function delayP(){
+function delayP(shouldRejected,timeout = 1000){
 
   return new Promise((resolve,reject)=>{
 
-    if(true){
-      resolve('성공~~')
-    }else{
-      reject('실패ㅜㅜ')
-    }
+    setTimeout(()=>{
+
+      if(!shouldRejected){
+        resolve('성공~~')
+      }else{
+        reject('실패ㅜㅜ')
+      }
+
+
+    },timeout)
+
+    
   });
 }
 
+/*
 
-delayP()
+delayP(false)
 .then((res)=>{
   console.log( res );
 })
+.then((res)=>{
+  console.log( res );
+})
+
+다음 then은 undef ㅜㅜ
+
+*/
+
+
