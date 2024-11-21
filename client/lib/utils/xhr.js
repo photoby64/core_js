@@ -109,7 +109,7 @@ xhr.delete = (url,success,fail) => {
 
 
 
-// xhr.get(
+// xhr.delete(
 //   END_POINT,
 //   (data)=>{
 //     console.log( data );
