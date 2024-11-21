@@ -19,12 +19,15 @@ const second = getNode('.second');
 
 delay(()=>{
   first.style.top = '-100px'
+  second.style.top = '100px'
 
   delay(()=>{
     first.style.transform = 'rotate(360deg)'
+    second.style.transform = 'rotate(360deg)'
 
     delay(()=>{
       first.style.top = '0px'
+      second.style.top = '0px'
   
     })
   
@@ -32,11 +35,3 @@ delay(()=>{
 
 })
 
-
-// first.style.top = '-100px'
-// first.style.transform = 'rotate(360deg)'
-// first.style.top = '0px'
-
-// delay(()=>{
-  
-// })
