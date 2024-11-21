@@ -21,9 +21,11 @@ xhr.addEventListener('readystatechange', ()=>{
   if(xhr.readyState === 4){
 
     if(xhr.status >= 200 && xhr.status < 400){
-      console.log('!');
+      // console.log(JSON.parse(xhr.response));
+      const data = JSON.parse(xhr.response);
+
     }else{
-      console.log('t.t');
+      console.log('실패');
     }
   }
   //console.log(xhr.readyState);
