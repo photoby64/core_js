@@ -61,22 +61,57 @@ const obj = {
 }
 
 
-xhr({
-  method:"DELETE",
-  url: END_POINT,
-  success: (data)=>{
-    console.log( data );
-  },
-  fail: ()=>{},
-})
+// xhr({
+//   method:"DELETE",
+//   url: END_POINT,
+//   success: (data)=>{
+//     console.log( data );
+//   },
+//   fail: ()=>{},
+// })
+
+
+
 
 xhr.get = (url,success,fail) => {
-  xhr({
-    url:url,
-    success:success,
-    fail:fail
-  })
-  
+  xhr({ url, success, fail })
 }
 
-xhr.get()
+
+xhr.post = (url,body,success,fail) => {
+  xhr({
+    method:'POST',
+    url,
+    body,
+    success,
+    fail
+  })
+}
+
+xhr.put = (url,body,success,fail) => {
+  xhr({
+    method:'PUT',
+    url,
+    body,
+    success,
+    fail
+  })
+}
+xhr.delete = (url,success,fail) => {
+  xhr({
+    method:'DELETE',
+    url,
+    success,
+    fail
+  })
+}
+
+
+
+
+// xhr.get(
+//   END_POINT,
+//   (data)=>{
+//     console.log( data );
+//   }
+// )
