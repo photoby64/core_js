@@ -1,4 +1,4 @@
-const END_POINT = 'https://jsonplaceholder.typicode.com/user';
+const END_POINT = 'https://jsonplaceholder.typicode.com/users';
 
 // [readyState]
 // 0 : uninitialized
@@ -32,7 +32,7 @@ function xhr({
   xhr.open(method,url);
 
 
-  if(!method === 'DELETE'){
+  if(!(method === 'DELETE')){
     Object.entries(headers).forEach(([k,v])=>{
       xhr.setRequestHeader(k,v)
     })
@@ -162,7 +162,7 @@ function xhrPromise(options = {}){
 
   xhr.open(method,url);
   
-  if(!method === 'DELETE'){
+  if(!(method === 'DELETE')){
     Object.entries(headers).forEach(([k,v])=>{
       xhr.setRequestHeader(k,v)
     })
@@ -197,3 +197,26 @@ xhrPromise({
   console.log( err );
   
 })
+
+
+xhrPromise.get = (url) => xhrPromise({url})
+xhrPromise.post = (url,body) => xhrPromise({ url, body, method:'POST' })
+xhrPromise.put = (url,body) => xhrPromise({ url, body, method:'PUT' })
+xhrPromise.delete = (url) => xhrPromise({ url, method:'DELETE' })
+
+// xhrPromise.post(END_POINT,{name:'64',age:30})
+// .then((res)=>{
+//   console.log( res );
+
+// })
+
+xhrPromise.get(END_POINT)
+  .then((res) => {
+    res.forEach(({ website }) => {
+      const tag = `
+        <div>site: ${website}</div>
+      `;
+      document.body.insertAdjacentHTML('beforeend', tag);
+    });
+  });
+
