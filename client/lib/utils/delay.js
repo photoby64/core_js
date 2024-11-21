@@ -64,9 +64,9 @@ function delayP(){
   return new Promise((resolve,reject)=>{
 
     if(true){
-      resolve('성공')
+      resolve('성공~~')
     }else{
-      reject('실패')
+      reject('실패ㅜㅜ')
     }
   });
 }
