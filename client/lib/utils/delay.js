@@ -45,12 +45,30 @@ const p =  new Promise((성공,실패)=>{
   }else{
     실패('실패입니다~')
   }
-
-
 })
-console.log(p);
+
+// console.log(p);
 
 p.then((res)=>{
-  console.log(res);
+
+  // console.log(res);
 
 })
+
+
+// 프라미스 객체를 반환하는 함수 => 재사용
+
+
+function delayP(){
+  const p = new Promise((resolve,reject)=>{
+
+    if(condition){
+      resolve('성공')
+    }else{
+      reject('실패')
+    }
+  });
+
+  return p
+
+}
