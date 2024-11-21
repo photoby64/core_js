@@ -78,18 +78,32 @@ function delayP(shouldRejected,timeout = 1000){
   });
 }
 
-/*
+// delayP(false)
+// .then((res)=>{
+//   console.log( res );
+//   return delayP(false)
+// })
+// .then((res)=>{
+//   console.log( res );
+// })
 
 delayP(false)
-.then((res)=>{
-  console.log( res );
-})
-.then((res)=>{
-  console.log( res );
-})
+  .then((res) => {
 
-다음 then은 undef ㅜㅜ
+    first.style.top = '-100px';
+    second.style.top = '100px';
+    return delayP(false);
+  })
+  .then((res) => {
 
-*/
-
+    first.style.transform = 'rotate(360deg)';
+    second.style.transform = 'rotate(360deg)';
+    return delayP(false);
+  })
+  .then((res) => {
+    
+    first.style.top = '0px';
+    second.style.top = '0px';
+    return delayP(false);
+  });
 
