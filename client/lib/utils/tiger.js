@@ -82,6 +82,8 @@ tiger.delete = (url,options) => {
 
 
 
+
+
 // tiger.get()
 // tiger.put()
 // tiger.delete()
