@@ -1,7 +1,7 @@
 import { getNode } from '../dom/getNode.js';
 import { isNumber, isObject } from './type.js'
-import { xhrPromise } from './xhr.js';
-import { insertLast } from '../dom/insert.js';
+import { xhrPromise } from './xhr.js'
+import { insertLast } from '../dom/insert.js'
 
 function delay(callback, timeout = 1000) {
   setTimeout(callback, timeout);
@@ -264,27 +264,16 @@ async function 라면끓이기(){
 
 
 
-function _getData(){
-  xhrPromise.get('https://pokeapi.co/api/v2/pokemon/64')
-  .then((res)=>{
-    console.log( res );
-
-    insertLast(document.body,`<img src="${res.sprites.other.showdown['front_default']}" alt="" />`)
-    
-  })
-}
-
-
-// _getData()
-
-
 async function getData(){
 
-  const data =  await xhrPromise.get('https://pokeapi.co/api/v2/pokemon/300')
-
+  
+  const data = await xhrPromise.get('https://pokeapi.co/api/v2/pokemon/50')
+  
   insertLast(document.body,`<img src="${data.sprites.other.showdown['front_default']}" alt="" />`)
 
 }
 
 
-getData()
+
+
+// getData()

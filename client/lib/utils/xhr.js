@@ -1,3 +1,5 @@
+
+
 const END_POINT = 'https://jsonplaceholder.typicode.com/users';
 
 // [readyState]
@@ -116,6 +118,9 @@ xhr.delete = (url,success,fail) => {
 //   END_POINT,
 //   (data)=>{
 //     console.log( data );
+//   },
+//   ()=>{
+
 //   }
 // )
 
@@ -149,14 +154,14 @@ const defaultOptions = {
 
 export function xhrPromise(options = {}){
 
-  const {method,url,errorMessage,body,headers} = {
-    ...defaultOptions,
+  const {method,url,errorMessage,body,headers} = { 
+    ...defaultOptions, 
     ...options,
     headers:{
       ...defaultOptions.headers,
       ...options.headers
     }
-  }
+   }
 
   const xhr = new XMLHttpRequest();
 
@@ -185,18 +190,19 @@ export function xhrPromise(options = {}){
 
 
 
-xhrPromise({
-  method:'GET',
-  url:END_POINT
-})
-.then((res)=>{
-  //console.log( res );
+// xhrPromise({
+//   method:'GET',
+//   url:END_POINT
+// })
+// .then((res)=>{
+//   console.log( res );
   
-})
-.catch((err)=>{
-  console.log( err );
+// })
+// .catch((err)=>{
+//   console.log( err );
   
-})
+// })
+
 
 
 xhrPromise.get = (url) => xhrPromise({url})
@@ -204,19 +210,33 @@ xhrPromise.post = (url,body) => xhrPromise({ url, body, method:'POST' })
 xhrPromise.put = (url,body) => xhrPromise({ url, body, method:'PUT' })
 xhrPromise.delete = (url) => xhrPromise({ url, method:'DELETE' })
 
-// xhrPromise.post(END_POINT,{name:'64',age:30})
+
+
+// xhrPromise.get(END_POINT)
 // .then((res)=>{
+  
 //   console.log( res );
+  
+//   res.forEach(({website})=>{
+    
+//     const tag = `
+//       <div>site : ${website}</div>
+//     `
+
+//     document.body.insertAdjacentHTML('beforeend',tag)
+    
+//   })
+  
+// })
+// .then(()=>{
+
+// })
+// .catch(()=>{
 
 // })
 
-// xhrPromise.get(END_POINT)
-//   .then((res) => {
-//     res.forEach(({ website }) => {
-//       const tag = `
-//         <div>site: ${website}</div>
-//       `;
-//       document.body.insertAdjacentHTML('beforeend', tag);
-//     });
-//   });
 
+
+
+// xhrPromise.put()
+// xhrPromise.delete()

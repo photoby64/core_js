@@ -1,3 +1,9 @@
+
+
+
+
+
+
 const END_POINT = 'https://jsonplaceholder.typicode.com/users'
 
 
@@ -41,7 +47,6 @@ tiger.get = (url,options) => {
   })
 }
 
-
 tiger.post = (url,body,options) => {
   return tiger({
     method:'POST',
@@ -79,6 +84,13 @@ tiger.delete = (url,options) => {
 
 
 
+// (async function(){
+
+//   const response = await tiger.delete(END_POINT+'/1');
+
+//   console.log(response.data);
+
+// })()
 
 
 
