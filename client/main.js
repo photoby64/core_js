@@ -1,6 +1,9 @@
+
+
+
 import { 
-  tiger, 
-  delayP,
+  tiger,
+  delayP, 
   getNode,
   insertLast, 
   changeColor,
@@ -17,10 +20,11 @@ const userCardInner = getNode('.user-card-inner');
 
 
 
+renderSpinner(userCardInner)
+
+
 
 async function renderUserList(){
-
-  renderSpinner(userCardInner)
 
 
   try{
@@ -28,12 +32,17 @@ async function renderUserList(){
     const response = await tiger.get(END_POINT);
 
     // getNode('.loadingSpinner').remove()
-    gsap.to('.lodingSpinner',{
-      opacity:0
+
+    gsap.to('.loadingSpinner',{
+      opacity:0,
+      onComplete(){
+        
+        console.log(this);
+      }
     })
 
     const data = response.data;
-
+  
     await delayP(1000)
   
     
@@ -42,7 +51,7 @@ async function renderUserList(){
     changeColor('.user-card');
   
     gsap.from('.user-card',{
-      
+      // delay:1,
       x:-100,
       opacity:0,
       stagger:{
