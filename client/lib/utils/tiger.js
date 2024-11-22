@@ -10,7 +10,8 @@ const defaultOptions = {
   }
 }
 
-async function tiger(options) {
+const tiger = async (options) =>{
+
   const { url, ...restOptions } = {
     ...defaultOptions,       // 기본 옵션
     ...options,              // 사용자 정의 옵션
@@ -21,13 +22,17 @@ async function tiger(options) {
   };
 
   const response = await fetch(url, restOptions); // HTTP 요청
-  const data = await response.json();            // JSON 응답 파싱
-  return data;                                   // 결과 반환
+
+  if(response.ok){
+    response.data = await response.json();
+
+  }  
+  return response
 }
 
-tiger({
-  url: END_POINT,
-});
+const response = await tiger({ url: END_POINT});
+
+console.log(response.data);
 
 
 
