@@ -190,7 +190,7 @@ xhrPromise({
   url:END_POINT
 })
 .then((res)=>{
-  console.log( res );
+  //console.log( res );
   
 })
 .catch((err)=>{

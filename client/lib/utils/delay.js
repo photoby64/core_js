@@ -280,7 +280,7 @@ function _getData(){
 
 async function getData(){
 
-  const data =  await xhrPromise.get('https://pokeapi.co/api/v2/pokemon/640')
+  const data =  await xhrPromise.get('https://pokeapi.co/api/v2/pokemon/39')
 
   insertLast(document.body,`<img src="${data.sprites.other.showdown['front_default']}" alt="" />`)
 
