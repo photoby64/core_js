@@ -37,7 +37,7 @@ async function renderUserList(){
       opacity:0,
       onComplete(){
         
-        console.log(this);
+        console.log(this._targets[0]);
       }
     })
 
