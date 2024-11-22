@@ -1,5 +1,6 @@
 import { 
   tiger, 
+  delayP,
   getNode,
   insertLast, 
   changeColor,
@@ -32,6 +33,8 @@ async function renderUserList(){
     })
 
     const data = response.data;
+
+    await delayP(1000)
   
     
     data.forEach((user)=> renderUserCard(userCardInner,user))
@@ -39,7 +42,7 @@ async function renderUserList(){
     changeColor('.user-card');
   
     gsap.from('.user-card',{
-      delay:1,
+      
       x:-100,
       opacity:0,
       stagger:{
