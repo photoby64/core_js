@@ -10,23 +10,34 @@ const defaultOptions = {
   }
 }
 
-async function tiger(method,url,body){
+async function tiger(options){
 
-  const response = await fetch(url,{
-    method,
+  const config = {
+    ...defaultOptions,
+    ...options,
     headers:{
-      'Content-Type':'application/json'
-    },
-    body:JSON.stringify(body)
-  });
-  
+      ...defaultOptions.headers,
+      ...options.headers
+    }
+  };
+
+
+
+  const {url,...restOptions} = config
+
+  const response = await fetch(url,restOptions);
   const data = await response.json();
 
 }
 
 
 
-tiger()
+tiger({
+  method: 'POST',
+  url: END_POINT,
+  body: { name: 'tiger', age: 33 }
+});
+
 
 
 
