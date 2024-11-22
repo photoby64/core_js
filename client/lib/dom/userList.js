@@ -74,6 +74,8 @@ function createUserCard({
 // 2. 생성된 태그를 랜더링 함수
 
 
-function rederUserCard(target,data){
-  insertLast(target, data)
+export function renderUserCard(target,data){
+
+  insertLast(target,createUserCard(data))
+
 }
