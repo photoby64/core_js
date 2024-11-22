@@ -1,27 +1,35 @@
-console.log('tiger');
-
-
-
 const END_POINT = 'https://jsonplaceholder.typicode.com/users'
 
 
-
-
-const response = await fetch(END_POINT,{
-  method: 'POST',
+const defaultOptions = {
+  method:'GET',
+  body:null,
   headers:{
-    'Content-Type':'application/json'
-  },
-  body:JSON.stringify({name:'tiger',age:20})
-});
+    'Content-Type':'application/json',
+    'Access-Control-Allow-Origin':'*'
+  }
+}
+
+async function tiger(method,url,body){
+
+  const response = await fetch(url,{
+    method,
+    headers:{
+      'Content-Type':'application/json'
+    },
+    body:JSON.stringify(body)
+  });
+  
+  const data = await response.json();
+
+}
 
 
 
-const data = await response.json();
-
-console.log( data );
+tiger()
 
 
 
+// console.log(await response.json());
 
 
