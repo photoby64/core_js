@@ -16,7 +16,7 @@ const defaultOptions = {
   }
 }
 
-const tiger = async (options) =>{
+export const tiger = async (options) =>{
 
   const {url,...rest} = {
     ...defaultOptions,
