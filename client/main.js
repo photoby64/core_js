@@ -9,6 +9,7 @@ import {
   changeColor,
   renderSpinner,
   renderUserCard,
+  renderEmptyCard
  } from "./lib/index.js";
 
 
@@ -63,6 +64,8 @@ async function renderUserList(){
   
   }
   catch{
+
+    renderEmptyCard(userCardInner)
     console.log('error!');
     
   }
@@ -75,7 +78,34 @@ renderUserList()
 
 
 
+
+
 // 1. user 데이터 fetch 해주세요.
 
 
 // 2. fetch 데이터 유저의 이름만 콘솔에 출력 
+
+
+
+function handleDeleteCard(e){
+  const button = e.target.closest('button');
+
+  if(!button) return;
+
+  const article = button.parentElement;
+  const index = article.dataset.index.slice(5);
+  tiger.delete(`${END_POINT}/${index}`).then(()=>{
+    alert('삭제가 완료됐습니다.'); // 핸들러는 비동기 함수로 async로 만들지 않음. than을 쓰자
+  })
+
+
+
+  console.log();
+  
+
+
+}
+
+
+
+userCardInner.addEventListener('click', handleDeleteCard);
