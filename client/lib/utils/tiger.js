@@ -10,33 +10,25 @@ const defaultOptions = {
   }
 }
 
-async function tiger(options){
-
-  const config = {
-    ...defaultOptions,
-    ...options,
-    headers:{
-      ...defaultOptions.headers,
-      ...options.headers
-    }
+async function tiger(options) {
+  const { url, ...restOptions } = {
+    ...defaultOptions,       // 기본 옵션
+    ...options,              // 사용자 정의 옵션
+    headers: {
+      ...defaultOptions.headers, // 기본 헤더
+      ...options.headers,        // 사용자 정의 헤더
+    },
   };
 
-
-
-  const {url,...restOptions} = config
-
-  const response = await fetch(url,restOptions);
-  const data = await response.json();
-
+  const response = await fetch(url, restOptions); // HTTP 요청
+  const data = await response.json();            // JSON 응답 파싱
+  return data;                                   // 결과 반환
 }
 
-
-
 tiger({
-  method: 'POST',
   url: END_POINT,
-  body: { name: 'tiger', age: 33 }
 });
+
 
 
 
