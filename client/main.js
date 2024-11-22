@@ -2,7 +2,9 @@ import {
   tiger, 
   getNode,
   insertLast, 
-  renderUserCard
+  changeColor,
+  renderSpinner,
+  renderUserCard,
  } from "./lib/index.js";
 
 
@@ -12,14 +14,47 @@ const END_POINT = 'https://jsonplaceholder.typicode.com/users'
 
 const userCardInner = getNode('.user-card-inner');
 
+
+
+
 async function renderUserList(){
 
-  const response = await tiger.get(END_POINT);
+  renderSpinner(userCardInner)
 
-  const data = response.data;
 
+  try{
+
+    const response = await tiger.get(END_POINT);
+
+    // getNode('.loadingSpinner').remove()
+    gsap.to('.lodingSpinner',{
+      opacity:0
+    })
+
+    const data = response.data;
   
-  data.forEach((user)=> renderUserCard(userCardInner,user))
+    
+    data.forEach((user)=> renderUserCard(userCardInner,user))
+  
+    changeColor('.user-card');
+  
+    gsap.from('.user-card',{
+      delay:1,
+      x:-100,
+      opacity:0,
+      stagger:{
+        amount:1,
+        from:'start'
+      }
+    })
+  
+  
+  }
+  catch{
+    console.log('error!');
+    
+  }
+
 }
 
 

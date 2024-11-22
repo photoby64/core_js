@@ -26,7 +26,8 @@ export default [
         ...globals.browser, 
         ...globals.node,
         ...types,
-        ...dom
+        ...dom,
+        gsap:true
       } 
     },
     rules:{
