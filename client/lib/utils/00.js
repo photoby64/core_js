@@ -131,3 +131,34 @@ delayP()
   console.log( res );
   
 })
+
+
+
+function num(a,b,value){
+  return a + value + b
+}
+
+num.multi = (a,b) => {
+  return num(a,b,'곱하기')
+}
+
+num.division = (a,b) => {
+  return num(a,b,'나누기')
+}
+
+
+
+
+
+
+const p = new Promise((f,c)=>{
+  f('a')
+})
+
+
+
+console.log( num.multi(2,3) );
+console.log( num.division(10,5) );
+
+
+console.log( num(1,2,'더하기') );

@@ -210,13 +210,13 @@ xhrPromise.delete = (url) => xhrPromise({ url, method:'DELETE' })
 
 // })
 
-xhrPromise.get(END_POINT)
-  .then((res) => {
-    res.forEach(({ website }) => {
-      const tag = `
-        <div>site: ${website}</div>
-      `;
-      document.body.insertAdjacentHTML('beforeend', tag);
-    });
-  });
+// xhrPromise.get(END_POINT)
+//   .then((res) => {
+//     res.forEach(({ website }) => {
+//       const tag = `
+//         <div>site: ${website}</div>
+//       `;
+//       document.body.insertAdjacentHTML('beforeend', tag);
+//     });
+//   });
 
