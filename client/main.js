@@ -1,19 +1,20 @@
 
 
+
 import { 
-  tiger,
-  delayP, 
+  tiger, 
+  delayP,
   getNode,
   insertLast, 
   changeColor,
   renderSpinner,
   renderUserCard,
-  renderEmptyCard
+  renderEmptyCard,
  } from "./lib/index.js";
 
 
 
-const END_POINT = 'https://jsonplaceholder.typicode.com/users'
+const END_POINT = 'http://localhost:3000/users'
 
 
 const userCardInner = getNode('.user-card-inner');
@@ -26,7 +27,6 @@ renderSpinner(userCardInner)
 
 async function renderUserList(){
 
-
   try{
 
     const response = await tiger.get(END_POINT);
@@ -36,22 +36,24 @@ async function renderUserList(){
     gsap.to('.loadingSpinner',{
       opacity:0,
       onComplete(){
-        
         this._targets[0].remove()
       }
     })
 
     const data = response.data;
   
+    
     await delayP(1000)
   
     
-    data.forEach((user)=> renderUserCard(userCardInner,user))
+    data.forEach((user)=> {
+      
+      renderUserCard(userCardInner,user)
+    })
   
     changeColor('.user-card');
   
     gsap.from('.user-card',{
-      // delay:1,
       x:-100,
       opacity:0,
       stagger:{
@@ -65,7 +67,6 @@ async function renderUserList(){
   catch{
 
     renderEmptyCard(userCardInner)
-    console.log('error!');
     
   }
 
@@ -77,13 +78,10 @@ renderUserList()
 
 
 
-
-
 // 1. user 데이터 fetch 해주세요.
 
 
 // 2. fetch 데이터 유저의 이름만 콘솔에 출력 
-
 
 
 function handleDeleteCard(e){
@@ -93,18 +91,15 @@ function handleDeleteCard(e){
 
   const article = button.parentElement;
   const index = article.dataset.index.slice(5);
+  
   tiger.delete(`${END_POINT}/${index}`).then(()=>{
-    alert('삭제가 완료됐습니다.'); // 핸들러는 비동기 함수로 async로 만들지 않음. than을 쓰자
+    alert('삭제가 완료됐습니다.')
+
+    renderUserList()
   })
-
-
-
-  console.log();
   
 
 
 }
 
-
-
-userCardInner.addEventListener('click', handleDeleteCard);
+userCardInner.addEventListener('click',handleDeleteCard)
