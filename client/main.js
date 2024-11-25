@@ -10,6 +10,7 @@ import {
   renderSpinner,
   renderUserCard,
   renderEmptyCard,
+  clearContents,
  } from "./lib/index.js";
 
 
@@ -21,11 +22,13 @@ const userCardInner = getNode('.user-card-inner');
 
 
 
-renderSpinner(userCardInner)
+
 
 
 
 async function renderUserList(){
+
+  renderSpinner(userCardInner)
 
   try{
 
@@ -94,6 +97,8 @@ function handleDeleteCard(e){
   
   tiger.delete(`${END_POINT}/${index}`).then(()=>{
     alert('삭제가 완료됐습니다.')
+
+    clearContents(userCardInner);
 
     renderUserList()
   })
