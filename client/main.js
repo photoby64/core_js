@@ -20,5 +20,6 @@ defineElements()
 
 
 
+const buttonElement = document.createElement('custom-button');
 
-app.append(document.createElement('custom-button'));
+app.append(buttonElement);
