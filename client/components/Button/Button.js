@@ -1,64 +1,25 @@
 
 
 
+
 export class Button extends HTMLElement {
-  
-  constructor(){
+  constructor() {
     super();
-
-    this.attachShadow({mode:'open'});
-
-    this.state = {
-      active: this.getAttribute('active') || false
-    }
-
-    this.render();
-    
+    // 엘리먼트가 생성됨
   }
 
-  static get observedAttributes(){
-    return ['active']
+  connectedCallback() {
+    // 엘리먼트가 문서에 추가될 때 브라우저가 이 메서드를 호출합니다.
+    // (엘리먼트가 반복적으로 추가/제거되면 여러 번 호출될 수 있음)
+    console.log('나 태어남ㅋ');
   }
+
+  disconnectedCallback() {
+    // 엘리먼트가 문서에서 제거될 때 브라우저가 이 메서드를 호출합니다.
+    // (엘리먼트가 반복적으로 추가/제거되면 여러 번 호출될 수 있음)
+    console.log('나죽음');
+  }
+
   
-  attributeChangedCallback(name,oldValue,newValue){
-
-    if(name === 'active'){
-
-      this.state.active = newValue === 'true';
-      this.render();
-    }
-      
-  }
   
-  // 클릭 이벤트 바인딩
-  handleClick(){
-
-    const newActiveState = !this.state.active;
-    this.setAttribute('active',newActiveState)
-    
-  }
-
-  render(){
-    const {active} = this.state;
-    
-    this.shadowRoot.innerHTML = `
-    <style>
-      @import url('./components/Button/Button.css');
-      
-      button{
-        background-color: ${active ? 'orange' : '#ff7272'}
-      }
-    </style>
-    <button 
-      type="button",
-      aria-pressed="${active}",
-      aria-label="${active ? '활성화' : '비활성화'}"
-    >
-      ${active ? '🐯' : '❌'}
-    </button>
-  `
-  
-  this.shadowRoot.querySelector('button')
-  .addEventListener('click',this.handleClick.bind(this))
-  }
 }
