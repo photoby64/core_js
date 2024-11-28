@@ -1,25 +1,61 @@
 
+document.body.style.backgroundColor = 'black'
 
 
 
-export class Button extends HTMLElement {
-  constructor() {
-    super();
-    // 엘리먼트가 생성됨
+
+
+
+
+export class Button extends HTMLElement{
+
+  constructor(){
+    super()
+
+    this.attachShadow({mode:'open'});
+
+    
+    this.state = {
+      active: this.getAttribute('active') || false
+    }
+
+    this.render();
+
+
+    
   }
 
-  connectedCallback() {
-    // 엘리먼트가 문서에 추가될 때 브라우저가 이 메서드를 호출합니다.
-    // (엘리먼트가 반복적으로 추가/제거되면 여러 번 호출될 수 있음)
-    console.log('나 태어남ㅋ');
+  static get observedAttributes() {
+    return ['active'];
+  } 
+
+
+
+  handleClick(){
+
+    console.log('click~~');
+
+
+
   }
 
-  disconnectedCallback() {
-    // 엘리먼트가 문서에서 제거될 때 브라우저가 이 메서드를 호출합니다.
-    // (엘리먼트가 반복적으로 추가/제거되면 여러 번 호출될 수 있음)
-    console.log('나죽음');
+  render(){
+
+    // const = ;
+
+    this.shadowRoot.innerHTML = `
+    <style>
+      @import url("./components/Button/Button.css");
+    </style>
+    <button type="button" aria-pressed ="false">❤️</button>
+    `
+    
+
+    this.addEventListener('click',this.handleClick.bind(this))
+    
   }
 
-  
+
+
   
 }
