@@ -21,10 +21,17 @@ export class TodoService {
     console.log(...this.state);
   }
 
-  static CheckTodoItem(){
+  static CheckTodoItem(id,checked){
+    const t = this.state.find(t => t.id === id);
+    t.checked = checked;
+    console.log(...this.state);
+  }
 
-    
-    
+
+  static UpdateTodoItem(id,value){
+    const t = this.state.find( t => t.id === id);
+    t.value = value;
+    console.log(...this.state);
   }
 
 

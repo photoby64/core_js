@@ -42,17 +42,58 @@ export class TodoItem extends HTMLElement {
 
   connectedCallback(){
 
-    this.contentInput.value = 'TASK' + this.id;
+    const value = this.contentInput.value;
+
+    this.contentInput.value = value ? value : 'TASK' + this.id;
 
     this.deleteButton.addEventListener('click',()=>this.handleDelete())
     this.checkbox.addEventListener('click',()=> this.handleToggleChecked())
+    this.contentInput.addEventListener('blur',()=>this.handleUpdate())
+    this.contentInput.addEventListener('keydown',(e)=>this.handleEnterPress(e))
 
     s.AddTodoItem(this.id,this.contentInput.value,this.checkbox.checked);
+
+    this.saveData()
+  }
+
+  
+  handleEnterPress({keyCode}){
+
+    if(keyCode === 13){
+      //
+     
+      if(this.nextElementSibling !== null){
+        const next = this.nextElementSibling.shadowRoot.querySelector('input[type="text"]');
+
+        // this.contentInput.blur();
+        next.focus();
+        
+      }else{
+        this.contentInput.blur();
+      }
+    }
+    
+  }
+
+  handleUpdate(){
+    s.UpdateTodoItem(this.id,this.contentInput.value);
+    this.saveData()
+    
   }
 
   handleDelete(){
-    this.remove()
-    s.DeleteTodoItem(this.id)
+
+    
+    gsap.to(this,{
+      scale:0,
+      callbackScope:this,
+      onComplete(){
+        this.remove()
+        s.DeleteTodoItem(this.id);
+        this.saveData()
+      }
+    })
+
   }
 
   handleToggleChecked(){
@@ -61,7 +102,14 @@ export class TodoItem extends HTMLElement {
     }else{
       this.contentInput.classList.remove('done');
     }
+
+    s.CheckTodoItem(this.id,this.checkbox.checked);
+    this.saveData();
     
+  }
+
+  saveData(){
+    localStorage.setItem('todo',JSON.stringify(s.state));
   }
 
   render(){
