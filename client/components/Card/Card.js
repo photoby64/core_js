@@ -1,3 +1,9 @@
+
+
+
+
+
+
 export class Card extends HTMLElement {
 
   constructor(){
@@ -39,7 +45,7 @@ export class Card extends HTMLElement {
     const figure = /* html */`
       <figure>
         <img src="./assets/visual.jpg" alt="" />
-        <figcaption class="a11y-hidden">love...더럽</figcaption>
+        <figcaption class="a11y-hidden">눈이 소복히 쌓인 나뭇가지</figcaption>
       </figure>
     ` 
     
@@ -55,5 +61,3 @@ export class Card extends HTMLElement {
     `
   }
 }
-
-
