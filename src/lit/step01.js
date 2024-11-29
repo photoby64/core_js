@@ -6,17 +6,17 @@ import { LitElement, html } from 'lit'
 class MyElement extends LitElement {
 
   static properties = {
-    version:{} // 항상객체!!!
+    version:{} 
   }
 
   constructor(){
     super();
     
-    this.version = '1.0.0' // 속성 불러오기!
+    this.version = '1.0.0' 
 
   }
 
-  render(){ // 꺼내서 쓰기!
+  render(){ 
     return html `
       <div>${this.version}</div> 
     `
