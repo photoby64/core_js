@@ -1,47 +1,55 @@
 import { LitElement, html } from "lit";
 
 
-
-
 class TodoList extends LitElement {
 
   static properties = {
-    _listItems:{state:true}
+     _listItems:{state:true}
   }
-  
-  constructor() {
+
+  constructor(){
     super();
+    
     this._listItems = [
-      {text:'독서하기', completed: true},
-      {text:'독서', completed: false},
-
+      {text: '독서하기', completed: true},
+      {text: '영화보기', completed: false}
     ]
+
+    
   }
 
+  get input(){
+    return this.renderRoot.querySelector('.newItem') ?? null;
+  }
   
+  addTodoItem(){
 
-  
-  
+    this._listItems = [
+      ...this._listItems,
+      {text:this.input.value, completed:false}
+    ]
 
-  render() {
-    return html /* html */ `
-      <h2>TOdolist</h2>
+    this.input.value = ''
+    
+    // input value 를 가져와야 함 
+  }
+  
+  render(){
+    
+    return html /* html */` 
+      <h2>To Do List</h2>
       <ul>
-      ${
-        this._listItems.map((item)=>{
-          return html `<li>${item.text}</li>`
-        })
-      }
-      </ul>
+        ${ this._listItems.map(({text})=> html`<li>${text}</li>`) }
+      </ul>    
       <label id="newItem">
-      <input type="text" id="newItem" aria-lable="새">
-      </label>
-      <button type="button">cc</button>
+        <input class="newItem" type="text" id="newItem" aria-label="새로운 아이템"/>
+      </label> 
+      <button type="button" @click=${this.addTodoItem}>추가</button>
     `
   }
 
-
 }
+
 
 
 
