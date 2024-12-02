@@ -23,7 +23,7 @@ const product:{
 
 // 문제:students 프로퍼티를 정의하고 출력하세요
 
-const students:{name:string, score:number}[] = [
+const students = [
   { name: "Luke", score: 85 },
   { name: "Emma", score: 92 },
   { name: "Liam", score: 78 }
@@ -35,11 +35,7 @@ const students:{name:string, score:number}[] = [
 // 문제:user1 프로퍼티를 정의하고 출력하세요
 
 
-const user1:{
-  name:string,
-  age:number,
-  address:{lang:number,lat:number}[]
-} = {
+const user1 = {
   name:'tiger',
   age:30,
   address:[{

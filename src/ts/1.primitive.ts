@@ -57,8 +57,8 @@ let undef:undefined = undefined;
 let numA:10 = 10;
 let strA:'hello' = 'hello';
 
-
-
+// strA = 64; // 에러!
+// numA = 64; // 에러!
 
 
 

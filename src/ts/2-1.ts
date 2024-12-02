@@ -1,13 +1,19 @@
 
 
+
 // 숫자만 담을 수 있는 배열
-let onlyNumber:number[] = [1,2,3];
+
+let num:number[] = [1,2,3];
+
 
 
 
 
 // 문자만 담을 수 있는 배열
-let Str:string[] = ['a','b'];
+
+let str:string[] = ['a','b','c'];
+
+
 
 
 
@@ -15,14 +21,18 @@ let Str:string[] = ['a','b'];
 
 // 다양한 타입을 포함할 수 있는 배열
 // 유니온 타입!
-let any:(string|number|boolean)[] = ['a',true,64];
+
+let mixed:(string|number)[] = [64, 'a', '...', 3];
+
 
 
 
 
 
 // 개수와 자리가 정의됨.
-let tupleNumber:[number,number,number][] = [
-  [1,2,3],
-  [4,5,6]
+
+let matrix:[number,number,number][] = [
+  [1, 2, 3],
+  [4, 5, 6],
+  [7, 8, 9]
 ];

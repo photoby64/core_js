@@ -17,6 +17,6 @@ function f(x: number | string | Date | Cat) {
   } else if (x instanceof Date) {
     x.getTime();
   } else if ('age' in x) {
-    // 추가 작업
+    console.log(x.age);
   }
 }
