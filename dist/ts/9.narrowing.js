@@ -10,7 +10,7 @@ function f(x) {
         x.getTime();
     }
     else if ('age' in x) {
-        // 추가 작업
+        console.log(x.age);
     }
 }
 export {};

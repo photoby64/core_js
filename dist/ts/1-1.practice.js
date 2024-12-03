@@ -5,7 +5,9 @@ let nickName = 'pyk';
 let age = 64;
 //불린
 let isStudent = false;
+// null
 let noting = null;
+// undefined
 let undef = undefined;
 console.log(isStudent);
 export {};

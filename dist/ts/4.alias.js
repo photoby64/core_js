@@ -1,4 +1,4 @@
-// alias
+/* alias type */
 const user1 = {
     id: 1,
     name: 'tiger',
@@ -11,11 +11,18 @@ const user2 = {
     auth: 'admin',
     isPaid: true
 };
+const user3 = {
+    id: 2,
+    name: 'beom',
+    auth: 'admin',
+    isPaid: true
+};
 const person = {
-    name: 'py',
-    age: 10,
-    email: 'py@naver.com',
-    address: '평택시',
-    phone: '01067430779',
+    name: 'beom',
+    age: 30,
+    email: 'tiger@naver.com',
+    address: '서울시 중랑구',
+    phone: '01071690262',
+    // id:true
 };
 export {};
