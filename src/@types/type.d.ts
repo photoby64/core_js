@@ -21,3 +21,23 @@ export interface Item {
   [key:string]: string; // 인덱스 시그니처 
 
 }
+
+export interface Record {
+  avatar: string;
+  collectionId: string;
+  collectionName: string;
+  created: string;
+  email: string;
+  emailVisibility: boolean;
+  id: string;
+  name: string;
+  updated: string;
+  verified: boolean;
+}
+
+
+export interface Auth{
+  isAuth:boolean;
+  token:string;
+  user:Record
+}
